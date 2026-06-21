@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>中医体质自测 · 吕勇军·健康+保险</title>
+<title>涓尰浣撹川鑷祴 路 鍚曞媷鍐浡峰仴搴?淇濋櫓</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -96,7 +96,7 @@ body {
   border-color: #c0392b;
 }
 .checkbox-item .box::after { content: ''; }
-.checkbox-item.checked .box::after { content: '✓'; }
+.checkbox-item.checked .box::after { content: '鉁?; }
 .checkbox-item .label { font-size: 13px; color: #333; line-height: 1.3; }
 .checkbox-item.checked .label { color: #c0392b; font-weight: 500; }
 
@@ -194,7 +194,7 @@ body {
 }
 .footer .name { color: #c0392b; font-weight: 600; }
 
-/* 加载动画 */
+/* 鍔犺浇鍔ㄧ敾 */
 .loading {
   text-align: center;
   padding: 40px 20px;
@@ -211,7 +211,7 @@ body {
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* 分享按钮 */
+/* 鍒嗕韩鎸夐挳 */
 .share-hint {
   background: #fef9e7;
   border: 1px dashed #f39c12;
@@ -227,214 +227,217 @@ body {
 </head>
 <body>
 
-<!-- 首页：自测表单 -->
+<!-- 棣栭〉锛氳嚜娴嬭〃鍗?-->
 <div id="page-form">
   <div class="header">
-    <h1>🏥 中医体质自测</h1>
-    <p>46年执业老中医 · 双逻辑辨证</p>
-    <div class="sub">勾选身体信号 → 获取专属调理方案</div>
+    <h1>馃彞 涓尰浣撹川鑷祴</h1>
+    <p>46骞存墽涓氳€佷腑鍖?路 鍙岄€昏緫杈ㄨ瘉</p>
+    <div class="sub">鍕鹃€夎韩浣撲俊鍙?鈫?鑾峰彇涓撳睘璋冪悊鏂规</div>
   </div>
 
-  <div class="counter">已勾选 <span id="checkCount">0</span> 项信号</div>
+  <div class="counter">宸插嬀閫?<span id="checkCount">0</span> 椤逛俊鍙?/div>
 
-  <!-- 睡眠类 -->
+  <!-- 鐫＄湢绫?-->
   <div class="section">
-    <div class="section-title"><span class="icon">😴</span>睡眠类</div>
-    <div class="section-desc">勾选您近期出现的睡眠相关信号</div>
+    <div class="section-title"><span class="icon">馃槾</span>鐫＄湢绫?/div>
+    <div class="section-desc">鍕鹃€夋偍杩戞湡鍑虹幇鐨勭潯鐪犵浉鍏充俊鍙?/div>
     <div class="checkbox-grid" id="group-sleep">
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="入睡难"><div class="box"></div><div class="label">入睡难</div></label>
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="多梦易醒"><div class="box"></div><div class="label">多梦易醒</div></label>
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="早醒"><div class="box"></div><div class="label">早醒</div></label>
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="嗜睡"><div class="box"></div><div class="label">嗜睡</div></label>
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="睡醒乏力"><div class="box"></div><div class="label">睡醒乏力</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="鍏ョ潯闅?><div class="box"></div><div class="label">鍏ョ潯闅?/div></label>
+      <label class="checkbox-item"><input type="checkbox" value="澶氭ⅵ鏄撻啋"><div class="box"></div><div class="label">澶氭ⅵ鏄撻啋</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="鏃╅啋"><div class="box"></div><div class="label">鏃╅啋</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="鍡滅潯"><div class="box"></div><div class="label">鍡滅潯</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="鐫￠啋涔忓姏"><div class="box"></div><div class="label">鐫￠啋涔忓姏</div></label>
     </div>
   </div>
 
-  <!-- 头部类 -->
+  <!-- 澶撮儴绫?-->
   <div class="section">
-    <div class="section-title"><span class="icon">🧠</span>头部类</div>
-    <div class="section-desc">勾选您近期出现的头部相关信号</div>
+    <div class="section-title"><span class="icon">馃</span>澶撮儴绫?/div>
+    <div class="section-desc">鍕鹃€夋偍杩戞湡鍑虹幇鐨勫ご閮ㄧ浉鍏充俊鍙?/div>
     <div class="checkbox-grid" id="group-head">
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="头晕"><div class="box"></div><div class="label">头晕</div></label>
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="头沉"><div class="box"></div><div class="label">头沉</div></label>
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="耳鸣"><div class="box"></div><div class="label">耳鸣</div></label>
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="眼干"><div class="box"></div><div class="label">眼干</div></label>
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="视物模糊"><div class="box"></div><div class="label">视物模糊</div></label>
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="频繁头痛"><div class="box"></div><div class="label">频繁头痛</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="澶存檿"><div class="box"></div><div class="label">澶存檿</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="澶存矇"><div class="box"></div><div class="label">澶存矇</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="鑰抽福"><div class="box"></div><div class="label">鑰抽福</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="鐪煎共"><div class="box"></div><div class="label">鐪煎共</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="瑙嗙墿妯＄硦"><div class="box"></div><div class="label">瑙嗙墿妯＄硦</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="棰戠箒澶寸棝"><div class="box"></div><div class="label">棰戠箒澶寸棝</div></label>
     </div>
   </div>
 
-  <!-- 肠胃类 -->
+  <!-- 鑲犺儍绫?-->
   <div class="section">
-    <div class="section-title"><span class="icon">🍽️</span>肠胃类</div>
-    <div class="section-desc">勾选您近期出现的肠胃相关信号</div>
+    <div class="section-title"><span class="icon">馃嵔锔?/span>鑲犺儍绫?/div>
+    <div class="section-desc">鍕鹃€夋偍杩戞湡鍑虹幇鐨勮偁鑳冪浉鍏充俊鍙?/div>
     <div class="checkbox-grid" id="group-stomach">
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="胃胀"><div class="box"></div><div class="label">胃胀</div></label>
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="反酸"><div class="box"></div><div class="label">反酸</div></label>
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="食欲不振"><div class="box"></div><div class="label">食欲不振</div></label>
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="大便干结"><div class="box"></div><div class="label">大便干结</div></label>
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="大便溏稀"><div class="box"></div><div class="label">大便溏稀</div></label>
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="腹胀"><div class="box"></div><div class="label">腹胀</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="鑳冭儉"><div class="box"></div><div class="label">鑳冭儉</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="鍙嶉吀"><div class="box"></div><div class="label">鍙嶉吀</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="椋熸涓嶆尟"><div class="box"></div><div class="label">椋熸涓嶆尟</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="澶т究骞茬粨"><div class="box"></div><div class="label">澶т究骞茬粨</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="澶т究婧忕█"><div class="box"></div><div class="label">澶т究婧忕█</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="鑵硅儉"><div class="box"></div><div class="label">鑵硅儉</div></label>
     </div>
   </div>
 
-  <!-- 四肢类 -->
+  <!-- 鍥涜偄绫?-->
   <div class="section">
-    <div class="section-title"><span class="icon">🦵</span>四肢类</div>
-    <div class="section-desc">勾选您近期出现的四肢相关信号</div>
+    <div class="section-title"><span class="icon">馃Φ</span>鍥涜偄绫?/div>
+    <div class="section-desc">鍕鹃€夋偍杩戞湡鍑虹幇鐨勫洓鑲㈢浉鍏充俊鍙?/div>
     <div class="checkbox-grid" id="group-limb">
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="手脚冰凉"><div class="box"></div><div class="label">手脚冰凉</div></label>
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="手脚心发热"><div class="box"></div><div class="label">手脚心发热</div></label>
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="肩颈酸痛"><div class="box"></div><div class="label">肩颈酸痛</div></label>
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="四肢乏力"><div class="box"></div><div class="label">四肢乏力</div></label>
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="水肿"><div class="box"></div><div class="label">水肿</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="鎵嬭剼鍐板噳"><div class="box"></div><div class="label">鎵嬭剼鍐板噳</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="鎵嬭剼蹇冨彂鐑?><div class="box"></div><div class="label">鎵嬭剼蹇冨彂鐑?/div></label>
+      <label class="checkbox-item"><input type="checkbox" value="鑲╅閰哥棝"><div class="box"></div><div class="label">鑲╅閰哥棝</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="鍥涜偄涔忓姏"><div class="box"></div><div class="label">鍥涜偄涔忓姏</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="姘磋偪"><div class="box"></div><div class="label">姘磋偪</div></label>
     </div>
   </div>
 
-  <!-- 代谢精神类 -->
+  <!-- 浠ｈ阿绮剧绫?-->
   <div class="section">
-    <div class="section-title"><span class="icon">⚡</span>代谢精神类</div>
-    <div class="section-desc">勾选您近期出现的代谢/精神相关信号</div>
+    <div class="section-title"><span class="icon">鈿?/span>浠ｈ阿绮剧绫?/div>
+    <div class="section-desc">鍕鹃€夋偍杩戞湡鍑虹幇鐨勪唬璋?绮剧鐩稿叧淇″彿</div>
     <div class="checkbox-grid" id="group-metab">
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="易疲劳"><div class="box"></div><div class="label">易疲劳</div></label>
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="气短"><div class="box"></div><div class="label">气短</div></label>
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="多汗"><div class="box"></div><div class="label">多汗</div></label>
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="怕冷"><div class="box"></div><div class="label">怕冷</div></label>
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="怕热"><div class="box"></div><div class="label">怕热</div></label>
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="虚胖"><div class="box"></div><div class="label">虚胖</div></label>
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="消瘦"><div class="box"></div><div class="label">消瘦</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="鏄撶柌鍔?><div class="box"></div><div class="label">鏄撶柌鍔?/div></label>
+      <label class="checkbox-item"><input type="checkbox" value="姘旂煭"><div class="box"></div><div class="label">姘旂煭</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="澶氭睏"><div class="box"></div><div class="label">澶氭睏</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="鎬曞喎"><div class="box"></div><div class="label">鎬曞喎</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="鎬曠儹"><div class="box"></div><div class="label">鎬曠儹</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="铏氳儢"><div class="box"></div><div class="label">铏氳儢</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="娑堢槮"><div class="box"></div><div class="label">娑堢槮</div></label>
     </div>
   </div>
 
-  <!-- 情绪类 -->
+  <!-- 鎯呯华绫?-->
   <div class="section">
-    <div class="section-title"><span class="icon">😤</span>情绪类</div>
-    <div class="section-desc">勾选您近期出现的情绪相关信号</div>
+    <div class="section-title"><span class="icon">馃槫</span>鎯呯华绫?/div>
+    <div class="section-desc">鍕鹃€夋偍杩戞湡鍑虹幇鐨勬儏缁浉鍏充俊鍙?/div>
     <div class="checkbox-grid" id="group-emotion">
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="烦躁易怒"><div class="box"></div><div class="label">烦躁易怒</div></label>
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="抑郁思虑"><div class="box"></div><div class="label">抑郁思虑</div></label>
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="压力大"><div class="box"></div><div class="label">压力大</div></label>
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="胸闷叹气"><div class="box"></div><div class="label">胸闷叹气</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="鐑﹁簛鏄撴€?><div class="box"></div><div class="label">鐑﹁簛鏄撴€?/div></label>
+      <label class="checkbox-item"><input type="checkbox" value="鎶戦儊鎬濊檻"><div class="box"></div><div class="label">鎶戦儊鎬濊檻</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="鍘嬪姏澶?><div class="box"></div><div class="label">鍘嬪姏澶?/div></label>
+      <label class="checkbox-item"><input type="checkbox" value="鑳搁椃鍙规皵"><div class="box"></div><div class="label">鑳搁椃鍙规皵</div></label>
     </div>
   </div>
 
-  <!-- 皮肤类 -->
+  <!-- 鐨偆绫?-->
   <div class="section">
-    <div class="section-title"><span class="icon">🧴</span>皮肤类</div>
-    <div class="section-desc">勾选您近期出现的皮肤相关信号</div>
+    <div class="section-title"><span class="icon">馃Т</span>鐨偆绫?/div>
+    <div class="section-desc">鍕鹃€夋偍杩戞湡鍑虹幇鐨勭毊鑲ょ浉鍏充俊鍙?/div>
     <div class="checkbox-grid" id="group-skin">
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="暗沉"><div class="box"></div><div class="label">暗沉</div></label>
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="长痘"><div class="box"></div><div class="label">长痘</div></label>
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="干燥"><div class="box"></div><div class="label">干燥</div></label>
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="瘙痒"><div class="box"></div><div class="label">瘙痒</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="鏆楁矇"><div class="box"></div><div class="label">鏆楁矇</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="闀跨棙"><div class="box"></div><div class="label">闀跨棙</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="骞茬嚗"><div class="box"></div><div class="label">骞茬嚗</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="鐦欑棐"><div class="box"></div><div class="label">鐦欑棐</div></label>
     </div>
   </div>
 
-  <!-- 女性细分 -->
+  <!-- 濂虫€х粏鍒?-->
   <div class="section">
-    <div class="section-title"><span class="icon">👩</span>女性细分（女性勾选）</div>
-    <div class="section-desc">仅女性用户勾选，男性可跳过</div>
+    <div class="section-title"><span class="icon">馃懇</span>濂虫€х粏鍒嗭紙濂虫€у嬀閫夛級</div>
+    <div class="section-desc">浠呭コ鎬х敤鎴峰嬀閫夛紝鐢锋€у彲璺宠繃</div>
     <div class="checkbox-grid" id="group-female">
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="宫寒痛经"><div class="box"></div><div class="label">宫寒痛经</div></label>
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="女性气血不足"><div class="box"></div><div class="label">气血不足</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="瀹瘨鐥涚粡"><div class="box"></div><div class="label">瀹瘨鐥涚粡</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="濂虫€ф皵琛€涓嶈冻"><div class="box"></div><div class="label">姘旇涓嶈冻</div></label>
     </div>
   </div>
 
-  <!-- 男性细分 -->
+  <!-- 鐢锋€х粏鍒?-->
   <div class="section">
-    <div class="section-title"><span class="icon">👨</span>男性细分（男性勾选）</div>
-    <div class="section-desc">仅男性用户勾选，女性可跳过</div>
+    <div class="section-title"><span class="icon">馃懆</span>鐢锋€х粏鍒嗭紙鐢锋€у嬀閫夛級</div>
+    <div class="section-desc">浠呯敺鎬х敤鎴峰嬀閫夛紝濂虫€у彲璺宠繃</div>
     <div class="checkbox-grid" id="group-male">
-      <label class="checkbox-item" onclick="toggleCb(this)"><input type="checkbox" value="男性乏力腰酸"><div class="box"></div><div class="label">乏力腰酸</div></label>
+      <label class="checkbox-item"><input type="checkbox" value="鐢锋€т箯鍔涜叞閰?><div class="box"></div><div class="label">涔忓姏鑵伴吀</div></label>
     </div>
   </div>
 
   <div class="btn-area">
-    <button class="btn btn-primary" onclick="submitTest()">🔍 开始辨证分析</button>
-    <button class="btn btn-secondary" onclick="resetAll()">🔄 重置全部选项</button>
+    <button class="btn btn-primary" onclick="submitTest()">馃攳 寮€濮嬭鲸璇佸垎鏋?/button>
+    <button class="btn btn-secondary" onclick="resetAll()">馃攧 閲嶇疆鍏ㄩ儴閫夐」</button>
   </div>
 
   <div class="disclaimer">
-    ⚠️ 温馨提示：本内容仅为药食同源养生科普，不能替代医师诊断与临床治疗，身体持续不适请及时线下就医。
-  </div>
+    鈿狅笍 娓╅Θ鎻愮ず锛氭湰鍐呭浠呬负鑽鍚屾簮鍏荤敓绉戞櫘锛屼笉鑳芥浛浠ｅ尰甯堣瘖鏂笌涓村簥娌荤枟锛岃韩浣撴寔缁笉閫傝鍙婃椂绾夸笅灏卞尰銆?  </div>
 
   <div class="footer">
-    由 <span class="name">吕勇军·健康+保险</span> 提供技术支持
-  </div>
+    鐢?<span class="name">鍚曞媷鍐浡峰仴搴?淇濋櫓</span> 鎻愪緵鎶€鏈敮鎸?  </div>
 </div>
 
-<!-- 结果页 -->
+<!-- 缁撴灉椤?-->
 <div id="page-result" class="result-area">
   <div class="header">
-    <h1>📋 体质辨证报告</h1>
-    <p style="font-size:11px;color:#fdebd0;margin-top:4px;">综合分析 · 双逻辑辨证</p>
+    <h1>馃搵 浣撹川杈ㄨ瘉鎶ュ憡</h1>
+    <p style="font-size:11px;color:#fdebd0;margin-top:4px;">缁煎悎鍒嗘瀽 路 鍙岄€昏緫杈ㄨ瘉</p>
     <div style="background:#c0392b22;border:1px solid #c0392b55;border-radius:8px;padding:10px 12px;margin-top:10px;text-align:left;font-size:11px;color:#555;line-height:1.8;">
-      <strong style="color:#c0392b;">ⓘ 分析准则：</strong><br>
-      ① 综合全部勾选信号，区分主次失衡，优先追溯核心根源<br>
-      ② 串联"血液→细胞→免疫→亚健康"完整逻辑链<br>
-      ③ 融合现代细胞营养学与中医气血理论，不割裂两大体系
+      <strong style="color:#c0392b;">鈸?鍒嗘瀽鍑嗗垯锛?/strong><br>
+      鈶?缁煎悎鍏ㄩ儴鍕鹃€変俊鍙凤紝鍖哄垎涓绘澶辫　锛屼紭鍏堣拷婧牳蹇冩牴婧?br>
+      鈶?涓茶仈"琛€娑测啋缁嗚優鈫掑厤鐤啋浜氬仴搴?瀹屾暣閫昏緫閾?br>
+      鈶?铻嶅悎鐜颁唬缁嗚優钀ュ吇瀛︿笌涓尰姘旇鐞嗚锛屼笉鍓茶涓ゅぇ浣撶郴
     </div>
   </div>
 
   <div id="loading" class="loading">
     <div class="spinner"></div>
-    正在综合分析您的体质信号...
+    姝ｅ湪缁煎悎鍒嗘瀽鎮ㄧ殑浣撹川淇″彿...
   </div>
 
   <div id="result-content" style="display:none;">
 
     <div class="result-card">
-      <h3>一、你的身体亚健康综合评估</h3>
+      <h3>涓€銆佷綘鐨勮韩浣撲簹鍋ュ悍缁煎悎璇勪及</h3>
       <div id="r-eval"></div>
     </div>
 
     <div class="result-card">
-      <h3>二、身体失衡底层原理讲解</h3>
+      <h3>浜屻€佽韩浣撳け琛″簳灞傚師鐞嗚瑙?/h3>
       <div id="r-principle"></div>
     </div>
 
     <div class="result-card">
-      <h3>三、专属药食同源全套日常调理方案</h3>
+      <h3>涓夈€佷笓灞炶嵂椋熷悓婧愬叏濂楁棩甯歌皟鐞嗘柟妗?/h3>
       <div id="r-plan"></div>
     </div>
 
     <div class="result-card">
-      <h3>四、专业就医提示</h3>
+      <h3>鍥涖€佷笓涓氬氨鍖绘彁绀?/h3>
       <div id="r-advice"></div>
     </div>
 
     <div class="share-hint">
-      💡 长按屏幕可保存报告图片<br>
-      📤 点击下方按钮可发送给微信好友
+      馃挕 闀挎寜灞忓箷鍙繚瀛樻姤鍛婂浘鐗?br>
+      馃摛 鐐瑰嚮涓嬫柟鎸夐挳鍙彂閫佺粰寰俊濂藉弸
     </div>
 
     <div class="btn-area">
-      <button class="btn btn-primary" onclick="shareToWechat()">📤 分享给微信好友</button>
-      <button class="btn btn-secondary" onclick="backToForm()">🔄 重新自测</button>
+      <button class="btn btn-primary" onclick="shareToWechat()">馃摛 鍒嗕韩缁欏井淇″ソ鍙?/button>
+      <button class="btn btn-secondary" onclick="backToForm()">馃攧 閲嶆柊鑷祴</button>
     </div>
 
     <div class="disclaimer">
-      ⚠️ 温馨提示：本内容仅为药食同源养生科普，不能替代医师诊断与临床治疗，身体持续不适请及时线下就医。<br><br>
-      <strong>【吕勇军·健康+保险】</strong> 提供健康咨询与保险规划服务，欢迎咨询。
-    </div>
+      鈿狅笍 娓╅Θ鎻愮ず锛氭湰鍐呭浠呬负鑽鍚屾簮鍏荤敓绉戞櫘锛屼笉鑳芥浛浠ｅ尰甯堣瘖鏂笌涓村簥娌荤枟锛岃韩浣撴寔缁笉閫傝鍙婃椂绾夸笅灏卞尰銆?br><br>
+      <strong>銆愬悤鍕囧啗路鍋ュ悍+淇濋櫓銆?/strong> 鎻愪緵鍋ュ悍鍜ㄨ涓庝繚闄╄鍒掓湇鍔★紝娆㈣繋鍜ㄨ銆?    </div>
 
     <div class="footer">
-      由 <span class="name">吕勇军·健康+保险</span> 提供技术支持
-    </div>
+      鐢?<span class="name">鍚曞媷鍐浡峰仴搴?淇濋櫓</span> 鎻愪緵鎶€鏈敮鎸?    </div>
   </div>
 </div>
 
 <script>
-// ========== 全局状态 ==========
+// ========== 鍏ㄥ眬鐘舵€?==========
 let selectedSymptoms = [];
 
-// ========== 勾选交互 ==========
-function toggleCb(el) {
-  el.classList.toggle('checked');
-  const cb = el.querySelector('input[type=checkbox]');
-  cb.checked = el.classList.contains('checked');
-  updateCount();
+// ========== 鍕鹃€変氦浜掞紙iOS/Android/寰俊鍏煎锛?=========
+// 閫氳繃浜嬩欢濮旀墭澶勭悊鎵€鏈夊嬀閫夛紝閬垮厤label鍘熺敓琛屼负鍐茬獊
+function initCheckboxes() {
+  document.getElementById('page-form').addEventListener('click', function(e) {
+    const item = e.target.closest('.checkbox-item');
+    if (!item) return;
+    e.preventDefault();
+    item.classList.toggle('checked');
+    const cb = item.querySelector('input[type=checkbox]');
+    if (cb) cb.checked = item.classList.contains('checked');
+    updateCount();
+  });
 }
+initCheckboxes();
 
 function updateCount() {
   const all = document.querySelectorAll('#page-form input[type=checkbox]:checked');
@@ -451,20 +454,20 @@ function resetAll() {
   document.getElementById('checkCount').textContent = '0';
 }
 
-// ========== 提交分析 ==========
+// ========== 鎻愪氦鍒嗘瀽 ==========
 function submitTest() {
   if (selectedSymptoms.length === 0) {
-    alert('请至少勾选一项身体信号再提交哦～');
+    alert('璇疯嚦灏戝嬀閫変竴椤硅韩浣撲俊鍙峰啀鎻愪氦鍝︼綖');
     return;
   }
 
-  // 切换页面
+  // 鍒囨崲椤甸潰
   document.getElementById('page-form').style.display = 'none';
   document.getElementById('page-result').classList.add('show');
   document.getElementById('loading').style.display = 'block';
   document.getElementById('result-content').style.display = 'none';
 
-  // 调用分析
+  // 璋冪敤鍒嗘瀽
   analyzeSymptoms(selectedSymptoms);
 }
 
@@ -473,13 +476,12 @@ function backToForm() {
   document.getElementById('page-form').style.display = 'block';
 }
 
-// ========== 核心分析引擎 ==========
+// ========== 鏍稿績鍒嗘瀽寮曟搸 ==========
 function analyzeSymptoms(symptoms) {
-  // 体质辨证逻辑
+  // 浣撹川杈ㄨ瘉閫昏緫
   const analysis = tcmAnalyze(symptoms);
 
-  // 填充结果（延迟显示，模拟分析过程）
-  setTimeout(() => {
+  // 濉厖缁撴灉锛堝欢杩熸樉绀猴紝妯℃嫙鍒嗘瀽杩囩▼锛?  setTimeout(() => {
     document.getElementById('loading').style.display = 'none';
     document.getElementById('result-content').style.display = 'block';
 
@@ -488,174 +490,166 @@ function analyzeSymptoms(symptoms) {
     document.getElementById('r-plan').innerHTML = analysis.plan;
     document.getElementById('r-advice').innerHTML = analysis.advice;
 
-    // 滚动到顶部
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // 婊氬姩鍒伴《閮?    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, 1500);
 }
 
-// ========== TCM 分析核心 ==========
-// ⚠️ 精准度强制指令①【多信号交叉辨证】
-// 禁止单一信号片面判定体质！必须综合用户全部勾选信号，
-// 区分主次失衡问题，优先解决核心气血淤堵/亏虚根源。
-// ⚠️ 精准度强制指令②【核心理论绑定】
-// 所有分析必须串联"血液滋养细胞→细胞健康决定免疫代谢→亚健康由循环失衡产生"逻辑链，
-// 不能割裂现代细胞理论与中医食疗体系。
-function tcmAnalyze(symptoms) {
-  // ---- 1. 体质类型判定 ----
+// ========== TCM 鍒嗘瀽鏍稿績 ==========
+// 鈿狅笍 绮惧噯搴﹀己鍒舵寚浠も憼銆愬淇″彿浜ゅ弶杈ㄨ瘉銆?// 绂佹鍗曚竴淇″彿鐗囬潰鍒ゅ畾浣撹川锛佸繀椤荤患鍚堢敤鎴峰叏閮ㄥ嬀閫変俊鍙凤紝
+// 鍖哄垎涓绘澶辫　闂锛屼紭鍏堣В鍐虫牳蹇冩皵琛€娣ゅ牭/浜忚櫄鏍规簮銆?// 鈿狅笍 绮惧噯搴﹀己鍒舵寚浠も憽銆愭牳蹇冪悊璁虹粦瀹氥€?// 鎵€鏈夊垎鏋愬繀椤讳覆鑱?琛€娑叉粙鍏荤粏鑳炩啋缁嗚優鍋ュ悍鍐冲畾鍏嶇柅浠ｈ阿鈫掍簹鍋ュ悍鐢卞惊鐜け琛′骇鐢?閫昏緫閾撅紝
+// 涓嶈兘鍓茶鐜颁唬缁嗚優鐞嗚涓庝腑鍖婚鐤椾綋绯汇€?function tcmAnalyze(symptoms) {
+  // ---- 1. 浣撹川绫诲瀷鍒ゅ畾 ----
   const scores = { qi:0, xue:0, yin:0, yang:0, tan:0, shi:0, gan:0, pi:0 };
 
   const rules = {
-    qi:  ['易疲劳','气短','四肢乏力','睡醒乏力','嗜睡','虚胖','乏力腰酸'],
-    xue: ['头晕','头痛','手脚冰凉','面色苍白','女性气血不足'],
-    yin: ['手脚心发热','眼干','视物模糊','盗汗','消瘦','烦躁易怒'],
-    yang: ['怕冷','手脚冰凉','宫寒痛经','腹泻','水肿'],
-    tan: ['胃胀','腹胀','大便溏稀','痰湿','肥胖','头晕','嗜睡'],
-    shi: ['长痘','瘙痒','头沉','口苦','大便干结','怕热'],
-    gan: ['烦躁易怒','抑郁思虑','压力大','胸闷叹气','频繁头痛','眼干'],
-    pi: ['食欲不振','胃胀','腹胀','大便溏稀','反酸','虚胖','嗜睡']
+    qi:  ['鏄撶柌鍔?,'姘旂煭','鍥涜偄涔忓姏','鐫￠啋涔忓姏','鍡滅潯','铏氳儢','涔忓姏鑵伴吀'],
+    xue: ['澶存檿','澶寸棝','鎵嬭剼鍐板噳','闈㈣壊鑻嶇櫧','濂虫€ф皵琛€涓嶈冻'],
+    yin: ['鎵嬭剼蹇冨彂鐑?,'鐪煎共','瑙嗙墿妯＄硦','鐩楁睏','娑堢槮','鐑﹁簛鏄撴€?],
+    yang: ['鎬曞喎','鎵嬭剼鍐板噳','瀹瘨鐥涚粡','鑵规郴','姘磋偪'],
+    tan: ['鑳冭儉','鑵硅儉','澶т究婧忕█','鐥版箍','鑲ヨ儢','澶存檿','鍡滅潯'],
+    shi: ['闀跨棙','鐦欑棐','澶存矇','鍙ｈ嫤','澶т究骞茬粨','鎬曠儹'],
+    gan: ['鐑﹁簛鏄撴€?,'鎶戦儊鎬濊檻','鍘嬪姏澶?,'鑳搁椃鍙规皵','棰戠箒澶寸棝','鐪煎共'],
+    pi: ['椋熸涓嶆尟','鑳冭儉','鑵硅儉','澶т究婧忕█','鍙嶉吀','铏氳儢','鍡滅潯']
   };
 
   symptoms.forEach(s => {
     Object.keys(rules).forEach(k => { if (rules[k].includes(s)) scores[k]++; });
   });
 
-  // 确定主体质
-  let mainType = Object.keys(scores).sort((a,b) => scores[b]-scores[a])[0];
+  // 纭畾涓讳綋璐?  let mainType = Object.keys(scores).sort((a,b) => scores[b]-scores[a])[0];
   let subType = Object.keys(scores).sort((a,b) => scores[b]-scores[a])[1];
   const totalScore = Object.values(scores).reduce((a,b)=>a+b,0);
 
-  // 体质名称映射
+  // 浣撹川鍚嶇О鏄犲皠
   const typeNames = {
-    qi:'气虚体质', xue:'血瘀体质', yin:'阴虚体质', yang:'阳虚体质',
-    tan:'痰湿体质', shi:'湿热体质', gan:'肝郁体质', pi:'脾胃虚寒体质'
+    qi:'姘旇櫄浣撹川', xue:'琛€鐦€浣撹川', yin:'闃磋櫄浣撹川', yang:'闃宠櫄浣撹川',
+    tan:'鐥版箍浣撹川', shi:'婀跨儹浣撹川', gan:'鑲濋儊浣撹川', pi:'鑴捐儍铏氬瘨浣撹川'
   };
   const typeDesc = {
-    qi:'气血不足，脏腑功能减弱，细胞供养不足',
-    xue:'血液循环不畅，血瘀阻络，细胞供氧不足',
-    yin:'阴液亏损，虚火内生，细胞失养',
-    yang:'阳气不足，温煦无力，代谢缓慢',
-    tan:'痰湿堆积，血液黏稠，循环受阻',
-    shi:'湿热内蕴，毒素堆积，细胞环境污浊',
-    gan:'肝气郁结，气机不畅，情志失调',
-    pi:'脾胃虚寒，运化无力，营养吸收障碍'
+    qi:'姘旇涓嶈冻锛岃剰鑵戝姛鑳藉噺寮憋紝缁嗚優渚涘吇涓嶈冻',
+    xue:'琛€娑插惊鐜笉鐣咃紝琛€鐦€闃荤粶锛岀粏鑳炰緵姘т笉瓒?,
+    yin:'闃存恫浜忔崯锛岃櫄鐏唴鐢燂紝缁嗚優澶卞吇',
+    yang:'闃虫皵涓嶈冻锛屾俯鐓︽棤鍔涳紝浠ｈ阿缂撴參',
+    tan:'鐥版箍鍫嗙Н锛岃娑查粡绋狅紝寰幆鍙楅樆',
+    shi:'婀跨儹鍐呰暣锛屾瘨绱犲爢绉紝缁嗚優鐜姹℃祳',
+    gan:'鑲濇皵閮佺粨锛屾皵鏈轰笉鐣咃紝鎯呭織澶辫皟',
+    pi:'鑴捐儍铏氬瘨锛岃繍鍖栨棤鍔涳紝钀ュ吇鍚告敹闅滅'
   };
 
-  // ---- 2. 生成评估报告 ----
+  // ---- 2. 鐢熸垚璇勪及鎶ュ憡 ----
   const evalHtml = `
-    <p>根据您勾选的 <strong>${symptoms.length} 项</strong> 身体信号，综合辨证结果为：</p>
+    <p>鏍规嵁鎮ㄥ嬀閫夌殑 <strong>${symptoms.length} 椤?/strong> 韬綋淇″彿锛岀患鍚堣鲸璇佺粨鏋滀负锛?/p>
     <p style="margin:12px 0;padding:12px;background:#fef9e7;border-radius:8px;">
       <strong style="color:#c0392b;font-size:16px;">${typeNames[mainType]}</strong><br>
-      ${subType && scores[subType]>0 ? '<span style="color:#666;">兼夹：' + typeNames[subType] + '</span><br>' : ''}
+      ${subType && scores[subType]>0 ? '<span style="color:#666;">鍏煎す锛? + typeNames[subType] + '</span><br>' : ''}
       ${typeDesc[mainType]}
     </p>
-    <p>当前您的<strong>气血循环偏弱</strong>，血液中的氧气和营养物质运输不畅，导致全身细胞供能不足，出现上述一系列体感信号。这属于身体发出的早期预警，及时调理可从根源改善。</p>
+    <p>褰撳墠鎮ㄧ殑<strong>姘旇寰幆鍋忓急</strong>锛岃娑蹭腑鐨勬哀姘斿拰钀ュ吇鐗╄川杩愯緭涓嶇晠锛屽鑷村叏韬粏鑳炰緵鑳戒笉瓒筹紝鍑虹幇涓婅堪涓€绯诲垪浣撴劅淇″彿銆傝繖灞炰簬韬綋鍙戝嚭鐨勬棭鏈熼璀︼紝鍙婃椂璋冪悊鍙粠鏍规簮鏀瑰杽銆?/p>
   `;
 
-  // ---- 3. 原理讲解 ----
+  // ---- 3. 鍘熺悊璁茶В ----
   const principleHtml = `
-    <p><strong>① 现代细胞-血液循环原理</strong></p>
-    <p>人体由约 40 万亿个细胞构成，细胞唯一的供养来源是<strong>全身血液循环</strong>。当您出现「${symptoms.slice(0,3).join('、')}」等信号时，说明血液运行不畅或血液质量下降，导致：</p>
+    <p><strong>鈶?鐜颁唬缁嗚優-琛€娑插惊鐜師鐞?/strong></p>
+    <p>浜轰綋鐢辩害 40 涓囦嚎涓粏鑳炴瀯鎴愶紝缁嗚優鍞竴鐨勪緵鍏绘潵婧愭槸<strong>鍏ㄨ韩琛€娑插惊鐜?/strong>銆傚綋鎮ㄥ嚭鐜般€?{symptoms.slice(0,3).join('銆?)}銆嶇瓑淇″彿鏃讹紝璇存槑琛€娑茶繍琛屼笉鐣呮垨琛€娑茶川閲忎笅闄嶏紝瀵艰嚧锛?/p>
     <ul>
-      <li>细胞供氧不足 → 易疲劳、气短、头晕</li>
-      <li>细胞供能不足 → 四肢乏力、嗜睡、虚胖</li>
-      <li>代谢废物排出不畅 → 长痘、暗沉、水肿</li>
+      <li>缁嗚優渚涙哀涓嶈冻 鈫?鏄撶柌鍔炽€佹皵鐭€佸ご鏅?/li>
+      <li>缁嗚優渚涜兘涓嶈冻 鈫?鍥涜偄涔忓姏銆佸棞鐫°€佽櫄鑳?/li>
+      <li>浠ｈ阿搴熺墿鎺掑嚭涓嶇晠 鈫?闀跨棙銆佹殫娌夈€佹按鑲?/li>
     </ul>
-    <p><strong>② 中医五脏气血失调根源</strong></p>
-    <p>中医认为"${typeNames[mainType].replace('体质','')}"的核心病机为：</p>
+    <p><strong>鈶?涓尰浜旇剰姘旇澶辫皟鏍规簮</strong></p>
+    <p>涓尰璁や负"${typeNames[mainType].replace('浣撹川','')}"鐨勬牳蹇冪梾鏈轰负锛?/p>
     <ul>
-      ${mainType==='qi' ? '<li>脾为气血生化之源，脾气虚则运化无力，气血生化不足，全身失养</li><li>气虚推血无力，血液循环缓慢，细胞供氧供能均不足</li>' : ''}
-      ${mainType==='xue' ? '<li>血瘀则血行不畅，新血不生，脏腑失养，症见头晕、头痛、手脚冰凉</li><li>瘀血不去，新血不生，长期可导致更严重的气血失调</li>' : ''}
-      ${mainType==='yin' ? '<li>阴液不足，虚火内生，灼伤津液，症见手脚心发热、眼干、烦躁</li><li>阴虚则阳亢，长期可导致阴阳两虚</li>' : ''}
-      ${mainType==='yang' ? '<li>阳气不足，温煦推动无力，症见怕冷、手脚冰凉、宫寒痛经</li><li>阳虚则寒，长期可导致痰湿内生、气血瘀滞</li>' : ''}
-      ${mainType==='tan' ? '<li>脾失健运，水湿内停，聚湿生痰，血液黏稠，循环受阻</li><li>痰湿堆积是多种慢性问题的根源，需及早调理</li>' : ''}
-      ${mainType==='shi' ? '<li>湿热内蕴，熏蒸于上则头面油腻、长痘；流注于下则大便黏滞</li><li>湿热不清，长期可损伤脾胃，影响气血生化</li>' : ''}
-      ${mainType==='gan' ? '<li>肝主疏泄，调畅情志。肝郁则气机不畅，情志失调，出现烦躁、胸闷</li><li>肝木克脾土，长期肝郁可导致脾胃功能受损</li>' : ''}
-      ${mainType==='pi' ? '<li>脾胃为后天之本，脾胃虚寒则运化无力，营养吸收障碍</li><li>脾胃虚弱，气血生化无源，全身失养，易疲劳、虚胖</li>' : ''}
+      ${mainType==='qi' ? '<li>鑴句负姘旇鐢熷寲涔嬫簮锛岃劸姘旇櫄鍒欒繍鍖栨棤鍔涳紝姘旇鐢熷寲涓嶈冻锛屽叏韬け鍏?/li><li>姘旇櫄鎺ㄨ鏃犲姏锛岃娑插惊鐜紦鎱紝缁嗚優渚涙哀渚涜兘鍧囦笉瓒?/li>' : ''}
+      ${mainType==='xue' ? '<li>琛€鐦€鍒欒琛屼笉鐣咃紝鏂拌涓嶇敓锛岃剰鑵戝け鍏伙紝鐥囪澶存檿銆佸ご鐥涖€佹墜鑴氬啺鍑?/li><li>鐦€琛€涓嶅幓锛屾柊琛€涓嶇敓锛岄暱鏈熷彲瀵艰嚧鏇翠弗閲嶇殑姘旇澶辫皟</li>' : ''}
+      ${mainType==='yin' ? '<li>闃存恫涓嶈冻锛岃櫄鐏唴鐢燂紝鐏间激娲ユ恫锛岀棁瑙佹墜鑴氬績鍙戠儹銆佺溂骞层€佺儲韬?/li><li>闃磋櫄鍒欓槼浜紝闀挎湡鍙鑷撮槾闃充袱铏?/li>' : ''}
+      ${mainType==='yang' ? '<li>闃虫皵涓嶈冻锛屾俯鐓︽帹鍔ㄦ棤鍔涳紝鐥囪鎬曞喎銆佹墜鑴氬啺鍑夈€佸瀵掔棝缁?/li><li>闃宠櫄鍒欏瘨锛岄暱鏈熷彲瀵艰嚧鐥版箍鍐呯敓銆佹皵琛€鐦€婊?/li>' : ''}
+      ${mainType==='tan' ? '<li>鑴惧け鍋ヨ繍锛屾按婀垮唴鍋滐紝鑱氭箍鐢熺棸锛岃娑查粡绋狅紝寰幆鍙楅樆</li><li>鐥版箍鍫嗙Н鏄绉嶆參鎬ч棶棰樼殑鏍规簮锛岄渶鍙婃棭璋冪悊</li>' : ''}
+      ${mainType==='shi' ? '<li>婀跨儹鍐呰暣锛岀啅钂镐簬涓婂垯澶撮潰娌硅吇銆侀暱鐥橈紱娴佹敞浜庝笅鍒欏ぇ渚块粡婊?/li><li>婀跨儹涓嶆竻锛岄暱鏈熷彲鎹熶激鑴捐儍锛屽奖鍝嶆皵琛€鐢熷寲</li>' : ''}
+      ${mainType==='gan' ? '<li>鑲濅富鐤忔硠锛岃皟鐣呮儏蹇椼€傝倽閮佸垯姘旀満涓嶇晠锛屾儏蹇楀け璋冿紝鍑虹幇鐑﹁簛銆佽兏闂?/li><li>鑲濇湪鍏嬭劸鍦燂紝闀挎湡鑲濋儊鍙鑷磋劸鑳冨姛鑳藉彈鎹?/li>' : ''}
+      ${mainType==='pi' ? '<li>鑴捐儍涓哄悗澶╀箣鏈紝鑴捐儍铏氬瘨鍒欒繍鍖栨棤鍔涳紝钀ュ吇鍚告敹闅滅</li><li>鑴捐儍铏氬急锛屾皵琛€鐢熷寲鏃犳簮锛屽叏韬け鍏伙紝鏄撶柌鍔炽€佽櫄鑳?/li>' : ''}
     </ul>
     <div class="tip-box">
-      <strong>🔗 核心逻辑链：</strong>血液滋养细胞 → 细胞健康决定免疫代谢 → 亚健康由循环失衡产生。当下您出现的这些信号属于<strong>早期预警</strong>，及时调理（食疗+作息+情绪疏导）可阻断身体持续损耗。
-    </div>
+      <strong>馃敆 鏍稿績閫昏緫閾撅細</strong>琛€娑叉粙鍏荤粏鑳?鈫?缁嗚優鍋ュ悍鍐冲畾鍏嶇柅浠ｈ阿 鈫?浜氬仴搴风敱寰幆澶辫　浜х敓銆傚綋涓嬫偍鍑虹幇鐨勮繖浜涗俊鍙峰睘浜?strong>鏃╂湡棰勮</strong>锛屽強鏃惰皟鐞嗭紙椋熺枟+浣滄伅+鎯呯华鐤忓锛夊彲闃绘柇韬綋鎸佺画鎹熻€椼€?    </div>
   `;
 
-  // ---- 4. 调理方案 ----
+  // ---- 4. 璋冪悊鏂规 ----
   const planHtml = generatePlan(mainType, subType, symptoms);
 
-  // ---- 5. 就医提示 ----
-  let level = '轻度';
+  // ---- 5. 灏卞尰鎻愮ず ----
+  let level = '杞诲害';
   let adviceDetail = '';
   if (symptoms.length <= 3) {
-    level = '轻度';
-    adviceDetail = '您目前勾选的信号较少，属于轻度亚健康状态。建议坚持以下调理方案，一般 2-4 周可见明显改善。无需立即就医，但如症状持续加重，建议及时就诊。';
+    level = '杞诲害';
+    adviceDetail = '鎮ㄧ洰鍓嶅嬀閫夌殑淇″彿杈冨皯锛屽睘浜庤交搴︿簹鍋ュ悍鐘舵€併€傚缓璁潥鎸佷互涓嬭皟鐞嗘柟妗堬紝涓€鑸?2-4 鍛ㄥ彲瑙佹槑鏄炬敼鍠勩€傛棤闇€绔嬪嵆灏卞尰锛屼絾濡傜棁鐘舵寔缁姞閲嶏紝寤鸿鍙婃椂灏辫瘖銆?;
   } else if (symptoms.length <= 7) {
-    level = '中度';
-    adviceDetail = '您目前勾选的信号较多，属于中度亚健康状态。建议严格按以下调理方案执行，同时密切观察身体变化。如调理 2 周后症状无明显改善，或出现新的不适信号，建议及时前往正规中医医院面诊，由执业中医师进行望闻问切综合辨证。';
+    level = '涓害';
+    adviceDetail = '鎮ㄧ洰鍓嶅嬀閫夌殑淇″彿杈冨锛屽睘浜庝腑搴︿簹鍋ュ悍鐘舵€併€傚缓璁弗鏍兼寜浠ヤ笅璋冪悊鏂规鎵ц锛屽悓鏃跺瘑鍒囪瀵熻韩浣撳彉鍖栥€傚璋冪悊 2 鍛ㄥ悗鐥囩姸鏃犳槑鏄炬敼鍠勶紝鎴栧嚭鐜版柊鐨勪笉閫備俊鍙凤紝寤鸿鍙婃椂鍓嶅線姝ｈ涓尰鍖婚櫌闈㈣瘖锛岀敱鎵т笟涓尰甯堣繘琛屾湜闂婚棶鍒囩患鍚堣鲸璇併€?;
   } else {
-    level = '重度';
-    adviceDetail = '您目前勾选的信号较多（' + symptoms.length + '项），身体多个系统均出现失调信号，属于需要重点关注的亚健康状态。<strong>食疗调理仅为辅助养护手段，不能替代临床诊疗。</strong>建议尽快前往正规中医医院面诊，由执业中医师进行系统辨证，必要时配合相关检查，明确诊断后再制定针对性调理方案。';
+    level = '閲嶅害';
+    adviceDetail = '鎮ㄧ洰鍓嶅嬀閫夌殑淇″彿杈冨锛? + symptoms.length + '椤癸級锛岃韩浣撳涓郴缁熷潎鍑虹幇澶辫皟淇″彿锛屽睘浜庨渶瑕侀噸鐐瑰叧娉ㄧ殑浜氬仴搴风姸鎬併€?strong>椋熺枟璋冪悊浠呬负杈呭姪鍏绘姢鎵嬫锛屼笉鑳芥浛浠ｄ复搴婅瘖鐤椼€?/strong>寤鸿灏藉揩鍓嶅線姝ｈ涓尰鍖婚櫌闈㈣瘖锛岀敱鎵т笟涓尰甯堣繘琛岀郴缁熻鲸璇侊紝蹇呰鏃堕厤鍚堢浉鍏虫鏌ワ紝鏄庣‘璇婃柇鍚庡啀鍒跺畾閽堝鎬ц皟鐞嗘柟妗堛€?;
   }
 
   const adviceHtml = `
-    <p><strong>当前信号数量：${symptoms.length} 项 → ${level}亚健康</strong></p>
+    <p><strong>褰撳墠淇″彿鏁伴噺锛?{symptoms.length} 椤?鈫?${level}浜氬仴搴?/strong></p>
     <p>${adviceDetail}</p>
     <div class="tip-box">
-      ⚠️ <strong>重要提示：</strong>本内容仅为药食同源养生科普，不能替代医师诊断与临床治疗。如您出现急性症状、剧烈疼痛、明显消瘦等"红旗信号"，请立即前往医院就诊，切勿延误。
-    </div>
+      鈿狅笍 <strong>閲嶈鎻愮ず锛?/strong>鏈唴瀹逛粎涓鸿嵂椋熷悓婧愬吇鐢熺鏅紝涓嶈兘鏇夸唬鍖诲笀璇婃柇涓庝复搴婃不鐤椼€傚鎮ㄥ嚭鐜版€ユ€х棁鐘躲€佸墽鐑堢柤鐥涖€佹槑鏄炬秷鐦︾瓑"绾㈡棗淇″彿"锛岃绔嬪嵆鍓嶅線鍖婚櫌灏辫瘖锛屽垏鍕垮欢璇€?    </div>
   `;
 
   return { eval: evalHtml, principle: principleHtml, plan: planHtml, advice: adviceHtml };
 }
 
-// ========== 生成调理方案 ==========
+// ========== 鐢熸垚璋冪悊鏂规 ==========
 function generatePlan(mainType, subType, symptoms) {
-  // 根据体质类型生成对应药食同源方案
+  // 鏍规嵁浣撹川绫诲瀷鐢熸垚瀵瑰簲鑽鍚屾簮鏂规
   const plans = {
     qi: {
-      food: '① <strong>每日简易食疗</strong>：黄芪粥（黄芪15g+大米50g，每周3次）；党参炖鸡（党参20g+鸡肉，温补气血）；红枣桂圆汤（补心脾、养气血）。',
-      tea: '② <strong>日常养生代茶饮</strong>：黄芪枸杞茶（黄芪10g+枸杞10粒，沸水冲泡，每日1杯）；党参红枣茶（党参10g+红枣5枚，煮水代茶）。',
-      sleep: '③ <strong>睡眠作息养护方案</strong>：固定 22:30 前入睡，6:30-7:00 起床；午休 15-20 分钟；睡前 1 小时不刷手机，可听轻音乐或做深呼吸。',
-      life: '④ <strong>情绪疏导+轻运动</strong>：避免久坐超过1小时；每日慢走30分钟；避免思虑过重，可练习腹式呼吸（吸气4秒-屏息2秒-呼气6秒）；忌生冷、寒凉食物。'
+      food: '鈶?<strong>姣忔棩绠€鏄撻鐤?/strong>锛氶粍鑺播锛堥粍鑺?5g+澶х背50g锛屾瘡鍛?娆★級锛涘厷鍙傜倴楦★紙鍏氬弬20g+楦¤倝锛屾俯琛ユ皵琛€锛夛紱绾㈡灒妗傚渾姹わ紙琛ュ績鑴俱€佸吇姘旇锛夈€?,
+      tea: '鈶?<strong>鏃ュ父鍏荤敓浠ｈ尪楗?/strong>锛氶粍鑺灨鏉炶尪锛堥粍鑺?0g+鏋告潪10绮掞紝娌告按鍐叉场锛屾瘡鏃?鏉級锛涘厷鍙傜孩鏋ｈ尪锛堝厷鍙?0g+绾㈡灒5鏋氾紝鐓按浠ｈ尪锛夈€?,
+      sleep: '鈶?<strong>鐫＄湢浣滄伅鍏绘姢鏂规</strong>锛氬浐瀹?22:30 鍓嶅叆鐫★紝6:30-7:00 璧峰簥锛涘崍浼?15-20 鍒嗛挓锛涚潯鍓?1 灏忔椂涓嶅埛鎵嬫満锛屽彲鍚交闊充箰鎴栧仛娣卞懠鍚搞€?,
+      life: '鈶?<strong>鎯呯华鐤忓+杞昏繍鍔?/strong>锛氶伩鍏嶄箙鍧愯秴杩?灏忔椂锛涙瘡鏃ユ參璧?0鍒嗛挓锛涢伩鍏嶆€濊檻杩囬噸锛屽彲缁冧範鑵瑰紡鍛煎惛锛堝惛姘?绉?灞忔伅2绉?鍛兼皵6绉掞級锛涘繉鐢熷喎銆佸瘨鍑夐鐗┿€?
     },
     xue: {
-      food: '① <strong>每日简易食疗</strong>：当归生姜羊肉汤（温经活血）；黑木耳炒芹菜（活血通络）；红糖姜茶（经期前后饮用，活血暖宫）。',
-      tea: '② <strong>日常养生代茶饮</strong>：玫瑰花茶（玫瑰花6朵+红糖，疏肝活血）；丹参茶（丹参10g+红枣5枚，煮水代茶，活血通络）。',
-      sleep: '③ <strong>睡眠作息养护方案</strong>：固定 22:00 前入睡（养血黄金时段）；睡前可用温水泡脚15分钟（水温40℃，加生姜3片）；避免熬夜。',
-      life: '④ <strong>情绪疏导+轻运动</strong>：适度快走（每日30分钟，促进循环）；避免久坐；保持心情舒畅（肝郁则血瘀）；忌食冰冷食物、少喝冷饮。'
+      food: '鈶?<strong>姣忔棩绠€鏄撻鐤?/strong>锛氬綋褰掔敓濮滅緤鑲夋堡锛堟俯缁忔椿琛€锛夛紱榛戞湪鑰崇倰鑺硅彍锛堟椿琛€閫氱粶锛夛紱绾㈢硸濮滆尪锛堢粡鏈熷墠鍚庨ギ鐢紝娲昏鏆栧锛夈€?,
+      tea: '鈶?<strong>鏃ュ父鍏荤敓浠ｈ尪楗?/strong>锛氱帿鐟拌姳鑼讹紙鐜懓鑺?鏈?绾㈢硸锛岀枏鑲濇椿琛€锛夛紱涓瑰弬鑼讹紙涓瑰弬10g+绾㈡灒5鏋氾紝鐓按浠ｈ尪锛屾椿琛€閫氱粶锛夈€?,
+      sleep: '鈶?<strong>鐫＄湢浣滄伅鍏绘姢鏂规</strong>锛氬浐瀹?22:00 鍓嶅叆鐫★紙鍏昏榛勯噾鏃舵锛夛紱鐫″墠鍙敤娓╂按娉¤剼15鍒嗛挓锛堟按娓?0鈩冿紝鍔犵敓濮?鐗囷級锛涢伩鍏嶇啲澶溿€?,
+      life: '鈶?<strong>鎯呯华鐤忓+杞昏繍鍔?/strong>锛氶€傚害蹇蛋锛堟瘡鏃?0鍒嗛挓锛屼績杩涘惊鐜級锛涢伩鍏嶄箙鍧愶紱淇濇寔蹇冩儏鑸掔晠锛堣倽閮佸垯琛€鐦€锛夛紱蹇岄鍐板喎椋熺墿銆佸皯鍠濆喎楗€?
     },
     yin: {
-      food: '① <strong>每日简易食疗</strong>：百合银耳羹（百合20g+银耳1朵，滋阴润燥）；枸杞菊花粥（枸杞15g+菊花10g+大米，清肝明目）；黑芝麻糊（补肾滋阴）。',
-      tea: '② <strong>日常养生代茶饮</strong>：麦冬玉竹茶（麦冬10g+玉竹10g，沸水冲泡，滋阴润燥）；枸杞菊花茶（枸杞15粒+菊花5朵，清肝明目）。',
-      sleep: '③ <strong>睡眠作息养护方案</strong>：固定 22:30 前入睡；卧室保持凉爽通风；睡前1小时不做剧烈运动；可听轻音乐助眠。',
-      life: '④ <strong>情绪疏导+轻运动</strong>：避免熬夜（熬夜最伤阴）；减少剧烈运动（出汗过多伤阴）；可练习八段锦或太极拳；忌食辛辣燥热食物（辣椒、羊肉、韭菜）。'
+      food: '鈶?<strong>姣忔棩绠€鏄撻鐤?/strong>锛氱櫨鍚堥摱鑰崇竟锛堢櫨鍚?0g+閾惰€?鏈碉紝婊嬮槾娑︾嚗锛夛紱鏋告潪鑿婅姳绮ワ紙鏋告潪15g+鑿婅姳10g+澶х背锛屾竻鑲濇槑鐩級锛涢粦鑺濋夯绯婏紙琛ヨ偩婊嬮槾锛夈€?,
+      tea: '鈶?<strong>鏃ュ父鍏荤敓浠ｈ尪楗?/strong>锛氶害鍐帀绔硅尪锛堥害鍐?0g+鐜夌10g锛屾哺姘村啿娉★紝婊嬮槾娑︾嚗锛夛紱鏋告潪鑿婅姳鑼讹紙鏋告潪15绮?鑿婅姳5鏈碉紝娓呰倽鏄庣洰锛夈€?,
+      sleep: '鈶?<strong>鐫＄湢浣滄伅鍏绘姢鏂规</strong>锛氬浐瀹?22:30 鍓嶅叆鐫★紱鍗у淇濇寔鍑夌埥閫氶锛涚潯鍓?灏忔椂涓嶅仛鍓х儓杩愬姩锛涘彲鍚交闊充箰鍔╃湢銆?,
+      life: '鈶?<strong>鎯呯华鐤忓+杞昏繍鍔?/strong>锛氶伩鍏嶇啲澶滐紙鐔鏈€浼ら槾锛夛紱鍑忓皯鍓х儓杩愬姩锛堝嚭姹楄繃澶氫激闃达級锛涘彲缁冧範鍏閿︽垨澶瀬鎷筹紱蹇岄杈涜荆鐕ョ儹椋熺墿锛堣荆妞掋€佺緤鑲夈€侀煭鑿滐級銆?
     },
     yang: {
-      food: '① <strong>每日简易食疗</strong>：羊肉汤（羊肉500g+生姜30g+当归10g，温阳散寒）；韭菜炒核桃（温肾助阳）；桂圆红枣粥（温补心脾）。',
-      tea: '② <strong>日常养生代茶饮</strong>：生姜红茶（生姜3片+红茶5g，温阳散寒）；桂圆红枣茶（桂圆10g+红枣5枚+红糖，温补心脾）。',
-      sleep: '③ <strong>睡眠作息养护方案</strong>：固定 22:00 前入睡（阳气闭藏时段）；睡前温水泡脚（加艾叶10g，温经散寒）；注意腰腹部保暖。',
-      life: '④ <strong>情绪疏导+轻运动</strong>：适度户外运动（晒太阳，补阳气）；避免久坐受凉；保持心情舒畅；忌食生冷寒凉（冰饮、西瓜、螃蟹）；注意腰腹、足部保暖。'
+      food: '鈶?<strong>姣忔棩绠€鏄撻鐤?/strong>锛氱緤鑲夋堡锛堢緤鑲?00g+鐢熷30g+褰撳綊10g锛屾俯闃虫暎瀵掞級锛涢煭鑿滅倰鏍告锛堟俯鑲惧姪闃筹級锛涙鍦嗙孩鏋ｇ播锛堟俯琛ュ績鑴撅級銆?,
+      tea: '鈶?<strong>鏃ュ父鍏荤敓浠ｈ尪楗?/strong>锛氱敓濮滅孩鑼讹紙鐢熷3鐗?绾㈣尪5g锛屾俯闃虫暎瀵掞級锛涙鍦嗙孩鏋ｈ尪锛堟鍦?0g+绾㈡灒5鏋?绾㈢硸锛屾俯琛ュ績鑴撅級銆?,
+      sleep: '鈶?<strong>鐫＄湢浣滄伅鍏绘姢鏂规</strong>锛氬浐瀹?22:00 鍓嶅叆鐫★紙闃虫皵闂棌鏃舵锛夛紱鐫″墠娓╂按娉¤剼锛堝姞鑹惧彾10g锛屾俯缁忔暎瀵掞級锛涙敞鎰忚叞鑵归儴淇濇殩銆?,
+      life: '鈶?<strong>鎯呯华鐤忓+杞昏繍鍔?/strong>锛氶€傚害鎴峰杩愬姩锛堟檼澶槼锛岃ˉ闃虫皵锛夛紱閬垮厤涔呭潗鍙楀噳锛涗繚鎸佸績鎯呰垝鐣咃紱蹇岄鐢熷喎瀵掑噳锛堝啺楗€佽タ鐡溿€佽瀮锜癸級锛涙敞鎰忚叞鑵广€佽冻閮ㄤ繚鏆栥€?
     },
     tan: {
-      food: '① <strong>每日简易食疗</strong>：薏米红豆粥（薏米30g+红豆30g，健脾祛湿）；冬瓜排骨汤（冬瓜500g+排骨，清热祛湿）；陈皮普洱茶（健脾理气化湿）。',
-      tea: '② <strong>日常养生代茶饮</strong>：陈皮茯苓茶（陈皮6g+茯苓10g，沸水冲泡，健脾祛湿）；薏米水（炒薏米30g煮水，代茶饮）。',
-      sleep: '③ <strong>睡眠作息养护方案</strong>：固定 23:00 前入睡；避免熬夜（熬夜伤脾，加重痰湿）；午休不超过30分钟；卧室保持干燥通风。',
-      life: '④ <strong>情绪疏导+轻运动</strong>：每日快走或慢跑30分钟（动则生阳，助化湿痰）；避免久坐；少吃肥甘厚味、甜腻食物；忌暴饮暴食。'
+      food: '鈶?<strong>姣忔棩绠€鏄撻鐤?/strong>锛氳枏绫崇孩璞嗙播锛堣枏绫?0g+绾㈣眴30g锛屽仴鑴剧婀匡級锛涘啲鐡滄帓楠ㄦ堡锛堝啲鐡?00g+鎺掗锛屾竻鐑婀匡級锛涢檲鐨櫘娲辫尪锛堝仴鑴剧悊姘斿寲婀匡級銆?,
+      tea: '鈶?<strong>鏃ュ父鍏荤敓浠ｈ尪楗?/strong>锛氶檲鐨尟鑻撹尪锛堥檲鐨?g+鑼嫇10g锛屾哺姘村啿娉★紝鍋ヨ劸绁涙箍锛夛紱钖忕背姘达紙鐐掕枏绫?0g鐓按锛屼唬鑼堕ギ锛夈€?,
+      sleep: '鈶?<strong>鐫＄湢浣滄伅鍏绘姢鏂规</strong>锛氬浐瀹?23:00 鍓嶅叆鐫★紱閬垮厤鐔锛堢啲澶滀激鑴撅紝鍔犻噸鐥版箍锛夛紱鍗堜紤涓嶈秴杩?0鍒嗛挓锛涘崸瀹や繚鎸佸共鐕ラ€氶銆?,
+      life: '鈶?<strong>鎯呯华鐤忓+杞昏繍鍔?/strong>锛氭瘡鏃ュ揩璧版垨鎱㈣窇30鍒嗛挓锛堝姩鍒欑敓闃筹紝鍔╁寲婀跨棸锛夛紱閬垮厤涔呭潗锛涘皯鍚冭偉鐢樺帤鍛炽€佺敎鑵婚鐗╋紱蹇屾毚楗毚椋熴€?
     },
     shi: {
-      food: '① <strong>每日简易食疗</strong>：绿豆百合汤（清热祛湿）；苦瓜炒蛋（清热泻火）；芹菜炒木耳（清热利湿）；薏米冬瓜汤（健脾祛湿）。',
-      tea: '② <strong>日常养生代茶饮</strong>：菊花决明子茶（菊花10g+决明子10g，清肝泻火）；金银花茶（金银花10g，清热祛湿）。',
-      sleep: '③ <strong>睡眠作息养护方案</strong>：固定 23:00 前入睡；避免熬夜（熬夜生湿热）；保持卧室凉爽通风；睡前不喝浓茶。',
-      life: '④ <strong>情绪疏导+轻运动</strong>：适度运动排汗（每周3次，每次30分钟）；避免久坐；少吃辛辣燥热、肥甘厚味；忌烟酒；多食清淡蔬果。'
+      food: '鈶?<strong>姣忔棩绠€鏄撻鐤?/strong>锛氱豢璞嗙櫨鍚堟堡锛堟竻鐑婀匡級锛涜嫤鐡滅倰铔嬶紙娓呯儹娉荤伀锛夛紱鑺硅彍鐐掓湪鑰筹紙娓呯儹鍒╂箍锛夛紱钖忕背鍐摐姹わ紙鍋ヨ劸绁涙箍锛夈€?,
+      tea: '鈶?<strong>鏃ュ父鍏荤敓浠ｈ尪楗?/strong>锛氳強鑺卞喅鏄庡瓙鑼讹紙鑿婅姳10g+鍐虫槑瀛?0g锛屾竻鑲濇郴鐏級锛涢噾閾惰姳鑼讹紙閲戦摱鑺?0g锛屾竻鐑婀匡級銆?,
+      sleep: '鈶?<strong>鐫＄湢浣滄伅鍏绘姢鏂规</strong>锛氬浐瀹?23:00 鍓嶅叆鐫★紱閬垮厤鐔锛堢啲澶滅敓婀跨儹锛夛紱淇濇寔鍗у鍑夌埥閫氶锛涚潯鍓嶄笉鍠濇祿鑼躲€?,
+      life: '鈶?<strong>鎯呯华鐤忓+杞昏繍鍔?/strong>锛氶€傚害杩愬姩鎺掓睏锛堟瘡鍛?娆★紝姣忔30鍒嗛挓锛夛紱閬垮厤涔呭潗锛涘皯鍚冭緵杈ｇ嚗鐑€佽偉鐢樺帤鍛筹紱蹇岀儫閰掞紱澶氶娓呮贰钄灉銆?
     },
     gan: {
-      food: '① <strong>每日简易食疗</strong>：玫瑰花粥（玫瑰花10g+大米，疏肝理气）；芹菜炒百合（清肝降火）；陈皮炖排骨（理气健脾）。',
-      tea: '② <strong>日常养生代茶饮</strong>：玫瑰花茶（玫瑰花6朵，沸水冲泡，疏肝理气）；菊花枸杞茶（菊花10g+枸杞15粒，清肝明目）。',
-      sleep: '③ <strong>睡眠作息养护方案</strong>：固定 22:30 前入睡；睡前不看刺激性内容；可听轻音乐或做深呼吸放松；避免情绪过度波动。',
-      life: '④ <strong>情绪疏导+轻运动</strong>：保持心情舒畅（肝喜条达而恶抑郁）；可练习深呼吸、冥想；适度户外运动（散步、太极拳）；忌食辛辣燥热；避免熬夜。'
+      food: '鈶?<strong>姣忔棩绠€鏄撻鐤?/strong>锛氱帿鐟拌姳绮ワ紙鐜懓鑺?0g+澶х背锛岀枏鑲濈悊姘旓級锛涜姽鑿滅倰鐧惧悎锛堟竻鑲濋檷鐏級锛涢檲鐨倴鎺掗锛堢悊姘斿仴鑴撅級銆?,
+      tea: '鈶?<strong>鏃ュ父鍏荤敓浠ｈ尪楗?/strong>锛氱帿鐟拌姳鑼讹紙鐜懓鑺?鏈碉紝娌告按鍐叉场锛岀枏鑲濈悊姘旓級锛涜強鑺辨灨鏉炶尪锛堣強鑺?0g+鏋告潪15绮掞紝娓呰倽鏄庣洰锛夈€?,
+      sleep: '鈶?<strong>鐫＄湢浣滄伅鍏绘姢鏂规</strong>锛氬浐瀹?22:30 鍓嶅叆鐫★紱鐫″墠涓嶇湅鍒烘縺鎬у唴瀹癸紱鍙惉杞婚煶涔愭垨鍋氭繁鍛煎惛鏀炬澗锛涢伩鍏嶆儏缁繃搴︽尝鍔ㄣ€?,
+      life: '鈶?<strong>鎯呯华鐤忓+杞昏繍鍔?/strong>锛氫繚鎸佸績鎯呰垝鐣咃紙鑲濆枩鏉¤揪鑰屾伓鎶戦儊锛夛紱鍙粌涔犳繁鍛煎惛銆佸啣鎯筹紱閫傚害鎴峰杩愬姩锛堟暎姝ャ€佸お鏋佹嫵锛夛紱蹇岄杈涜荆鐕ョ儹锛涢伩鍏嶇啲澶溿€?
     },
     pi: {
-      food: '① <strong>每日简易食疗</strong>：山药粥（山药50g+大米，健脾养胃）；红枣小米粥（温补脾胃）；生姜红糖水（温中散寒，适合胃寒者）。',
-      tea: '② <strong>日常养生代茶饮</strong>：陈皮红枣茶（陈皮6g+红枣5枚，健脾温中）；生姜红茶（生姜3片+红茶，温胃散寒）。',
-      sleep: '③ <strong>睡眠作息养护方案</strong>：固定 22:00 前入睡（脾胃修复时段）；注意腹部保暖；睡前2小时不进食；午休15-20分钟。',
-      life: '④ <strong>情绪疏导+轻运动</strong>：避免久坐；饭后慢走15分钟（助消化）；保持情绪平稳（忧思伤脾）；忌食生冷寒凉、暴饮暴食；规律饮食，细嚼慢咽。'
+      food: '鈶?<strong>姣忔棩绠€鏄撻鐤?/strong>锛氬北鑽播锛堝北鑽?0g+澶х背锛屽仴鑴惧吇鑳冿級锛涚孩鏋ｅ皬绫崇播锛堟俯琛ヨ劸鑳冿級锛涚敓濮滅孩绯栨按锛堟俯涓暎瀵掞紝閫傚悎鑳冨瘨鑰咃級銆?,
+      tea: '鈶?<strong>鏃ュ父鍏荤敓浠ｈ尪楗?/strong>锛氶檲鐨孩鏋ｈ尪锛堥檲鐨?g+绾㈡灒5鏋氾紝鍋ヨ劸娓╀腑锛夛紱鐢熷绾㈣尪锛堢敓濮?鐗?绾㈣尪锛屾俯鑳冩暎瀵掞級銆?,
+      sleep: '鈶?<strong>鐫＄湢浣滄伅鍏绘姢鏂规</strong>锛氬浐瀹?22:00 鍓嶅叆鐫★紙鑴捐儍淇鏃舵锛夛紱娉ㄦ剰鑵归儴淇濇殩锛涚潯鍓?灏忔椂涓嶈繘椋燂紱鍗堜紤15-20鍒嗛挓銆?,
+      life: '鈶?<strong>鎯呯华鐤忓+杞昏繍鍔?/strong>锛氶伩鍏嶄箙鍧愶紱楗悗鎱㈣蛋15鍒嗛挓锛堝姪娑堝寲锛夛紱淇濇寔鎯呯华骞崇ǔ锛堝咖鎬濅激鑴撅級锛涘繉椋熺敓鍐峰瘨鍑夈€佹毚楗毚椋燂紱瑙勫緥楗锛岀粏鍤兼參鍜姐€?
     }
   };
 
@@ -666,27 +660,24 @@ function generatePlan(mainType, subType, symptoms) {
     <p style="margin-top:10px;">${p.sleep}</p>
     <p style="margin-top:10px;">${p.life}</p>
     <div class="tip-box">
-      💡 <strong>执行要点：</strong>以上方案需<strong>坚持4-8周</strong>方可见明显效果。药食同源调理为温和养护，切勿急于求成。如服用后有不适，请立即停止并咨询专业人士。
-    </div>
+      馃挕 <strong>鎵ц瑕佺偣锛?/strong>浠ヤ笂鏂规闇€<strong>鍧氭寔4-8鍛?/strong>鏂瑰彲瑙佹槑鏄炬晥鏋溿€傝嵂椋熷悓婧愯皟鐞嗕负娓╁拰鍏绘姢锛屽垏鍕挎€ヤ簬姹傛垚銆傚鏈嶇敤鍚庢湁涓嶉€傦紝璇风珛鍗冲仠姝㈠苟鍜ㄨ涓撲笟浜哄＋銆?    </div>
   `;
 }
 
-// ========== 分享功能 ==========
+// ========== 鍒嗕韩鍔熻兘 ==========
 function shareToWechat() {
-  // 微信环境下触发分享
-  if (typeof WeixinJSBridge !== 'undefined') {
+  // 寰俊鐜涓嬭Е鍙戝垎浜?  if (typeof WeixinJSBridge !== 'undefined') {
     WeixinJSBridge.invoke('shareTimeline', {
-      title: '我的中医体质报告 · 吕勇军·健康+保险',
+      title: '鎴戠殑涓尰浣撹川鎶ュ憡 路 鍚曞媷鍐浡峰仴搴?淇濋櫓',
       link: window.location.href,
     });
   } else {
-    alert('请在微信中打开此页面，点击右上角"..."分享给好友～');
+    alert('璇峰湪寰俊涓墦寮€姝ら〉闈紝鐐瑰嚮鍙充笂瑙?..."鍒嗕韩缁欏ソ鍙嬶綖');
   }
 }
 
-// ========== 微信 JS-SDK 初始化（可选，需服务端配合）==========
-// 如需完整分享功能，需在服务端生成签名，此处预留接口
-</script>
+// ========== 寰俊 JS-SDK 鍒濆鍖栵紙鍙€夛紝闇€鏈嶅姟绔厤鍚堬級==========
+// 濡傞渶瀹屾暣鍒嗕韩鍔熻兘锛岄渶鍦ㄦ湇鍔＄鐢熸垚绛惧悕锛屾澶勯鐣欐帴鍙?</script>
 
 </body>
 </html>
