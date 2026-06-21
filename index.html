@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -28,6 +28,88 @@ body {
 .header p { font-size: 13px; opacity: 0.9; }
 .header .sub { font-size: 11px; opacity: 0.7; margin-top: 6px; }
 
+/* ========== 客户信息表单 ========== */
+.lead-form-wrap {
+  background: white;
+  border-radius: 16px;
+  padding: 20px 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 16px rgba(192,57,43,0.15);
+  border: 2px solid #f39c12;
+}
+.lead-form-title {
+  text-align: center;
+  font-size: 17px;
+  font-weight: 700;
+  color: #c0392b;
+  margin-bottom: 4px;
+}
+.lead-form-sub {
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 16px;
+}
+.lead-form-row {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid #eee;
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  background: #fef9e7;
+  transition: border-color 0.2s;
+}
+.lead-form-row:focus-within { border-color: #c0392b; }
+.lead-form-row .lf-icon {
+  font-size: 20px;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+.lead-form-row input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 15px;
+  color: #333;
+  width: 100%;
+  font-family: inherit;
+}
+.lead-form-row input::placeholder { color: #bbb; }
+.lead-form-row .lf-label {
+  font-size: 12px;
+  color: #999;
+  flex-shrink: 0;
+  margin-right: 8px;
+}
+.lf-submit-btn {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(192,57,43,0.4);
+  transition: all 0.2s;
+  margin-top: 4px;
+}
+.lf-submit-btn:active { transform: scale(0.98); opacity: 0.9; }
+.lf-submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.lf-success {
+  text-align: center;
+  padding: 24px 16px;
+  display: none;
+}
+.lf-success.show { display: block; }
+.lf-success .lf-check { font-size: 48px; margin-bottom: 8px; }
+.lf-success .lf-ok { font-size: 16px; font-weight: 700; color: #27ae60; margin-bottom: 4px; }
+.lf-success .lf-tip { font-size: 13px; color: #999; }
+
+/* ========== 原有样式 ========== */
 .section {
   background: white;
   border-radius: 14px;
@@ -195,7 +277,6 @@ body {
 }
 .footer .name { color: #c0392b; font-weight: 600; }
 
-/* 加载动画 */
 .loading {
   text-align: center;
   padding: 40px 20px;
@@ -212,7 +293,6 @@ body {
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* 分享按钮 */
 .share-hint {
   background: #fef9e7;
   border: 1px dashed #f39c12;
@@ -224,143 +304,188 @@ body {
   margin-bottom: 14px;
   line-height: 1.7;
 }
+
+/* 分析准则提示框 */
+.analysis-hint {
+  background: #c0392b11;
+  border: 1px solid #c0392b33;
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  font-size: 12px;
+  color: #c0392b;
+  line-height: 1.8;
+}
+.analysis-hint strong { display: block; margin-bottom: 4px; font-size: 13px; }
 </style>
 </head>
 <body>
 
 <!-- 首页：自测表单 -->
 <div id="page-form">
-  <div class="header">
-    <h1>🏥 中医体质自测</h1>
-    <p>46年执业老中医 · 双逻辑辨证</p>
-    <div class="sub">勾选身体信号 → 获取专属调理方案</div>
-  </div>
 
-  <div class="counter">已勾选 <span id="checkCount">0</span> 项信号</div>
+  <!-- 客户信息表单 -->
+  <div class="lead-form-wrap" id="leadFormWrap">
+    <div class="lead-form-title">👋 免费获取专属体质报告</div>
+    <div class="lead-form-sub">填写以下信息，立即开始您的中医体质自测</div>
 
-  <!-- 睡眠类 -->
-  <div class="section">
-    <div class="section-title"><span class="icon">😴</span>睡眠类</div>
-    <div class="section-desc">勾选您近期出现的睡眠相关信号</div>
-    <div class="checkbox-grid" id="group-sleep">
-      <label class="checkbox-item"><input type="checkbox" value="入睡难"><div class="box"></div><div class="label">入睡难</div></label>
-      <label class="checkbox-item"><input type="checkbox" value="多梦易醒"><div class="box"></div><div class="label">多梦易醒</div></label>
-      <label class="checkbox-item"><input type="checkbox" value="早醒"><div class="box"></div><div class="label">早醒</div></label>
-      <label class="checkbox-item"><input type="checkbox" value="嗜睡"><div class="box"></div><div class="label">嗜睡</div></label>
-      <label class="checkbox-item"><input type="checkbox" value="睡醒乏力"><div class="box"></div><div class="label">睡醒乏力</div></label>
+    <!-- 填写区域 -->
+    <div id="leadFormFields">
+      <div class="lead-form-row">
+        <span class="lf-icon">👤</span>
+        <input type="text" id="lf-name" placeholder="请输入您的姓名" maxlength="20">
+      </div>
+      <div class="lead-form-row">
+        <span class="lf-icon">📱</span>
+        <input type="tel" id="lf-phone" placeholder="请输入您的手机号" maxlength="11">
+      </div>
+      <button class="lf-submit-btn" id="lf-btn" onclick="submitLeadForm()">▶ 开始自测</button>
+    </div>
+
+    <!-- 提交成功区域 -->
+    <div class="lf-success" id="leadSuccess">
+      <div class="lf-check">✅</div>
+      <div class="lf-ok">信息已记录</div>
+      <div class="lf-tip">现在请填写您的身体信号，开始体质分析～</div>
     </div>
   </div>
 
-  <!-- 头部类 -->
-  <div class="section">
-    <div class="section-title"><span class="icon">🧠</span>头部类</div>
-    <div class="section-desc">勾选您近期出现的头部相关信号</div>
-    <div class="checkbox-grid" id="group-head">
-      <label class="checkbox-item"><input type="checkbox" value="头晕"><div class="box"></div><div class="label">头晕</div></label>
-      <label class="checkbox-item"><input type="checkbox" value="头沉"><div class="box"></div><div class="label">头沉</div></label>
-      <label class="checkbox-item"><input type="checkbox" value="耳鸣"><div class="box"></div><div class="label">耳鸣</div></label>
-      <label class="checkbox-item"><input type="checkbox" value="眼干"><div class="box"></div><div class="label">眼干</div></label>
-      <label class="checkbox-item"><input type="checkbox" value="视物模糊"><div class="box"></div><div class="label">视物模糊</div></label>
-      <label class="checkbox-item"><input type="checkbox" value="频繁头痛"><div class="box"></div><div class="label">频繁头痛</div></label>
+  <!-- 测试题目（默认隐藏，提交表单后显示） -->
+  <div id="testContent" style="display:none;">
+    <div class="counter">已勾选 <span id="checkCount">0</span> 项信号</div>
+
+    <!-- 分析准则提示 -->
+    <div class="analysis-hint">
+      <strong>ⓘ 分析准则（请先了解）：</strong>
+      ① 综合全部勾选信号，区分主次失衡，优先追溯核心根源<br>
+      ② 必须串联"血液→细胞→免疫→亚健康"完整逻辑链<br>
+      ③ 融合现代细胞营养学与中医气血理论，不割裂两大体系
     </div>
-  </div>
 
-  <!-- 肠胃类 -->
-  <div class="section">
-    <div class="section-title"><span class="icon">🍽️</span>肠胃类</div>
-    <div class="section-desc">勾选您近期出现的肠胃相关信号</div>
-    <div class="checkbox-grid" id="group-stomach">
-      <label class="checkbox-item"><input type="checkbox" value="胃胀"><div class="box"></div><div class="label">胃胀</div></label>
-      <label class="checkbox-item"><input type="checkbox" value="反酸"><div class="box"></div><div class="label">反酸</div></label>
-      <label class="checkbox-item"><input type="checkbox" value="食欲不振"><div class="box"></div><div class="label">食欲不振</div></label>
-      <label class="checkbox-item"><input type="checkbox" value="大便干结"><div class="box"></div><div class="label">大便干结</div></label>
-      <label class="checkbox-item"><input type="checkbox" value="大便溏稀"><div class="box"></div><div class="label">大便溏稀</div></label>
-      <label class="checkbox-item"><input type="checkbox" value="腹胀"><div class="box"></div><div class="label">腹胀</div></label>
+    <!-- 睡眠类 -->
+    <div class="section">
+      <div class="section-title"><span class="icon">😴</span>睡眠类</div>
+      <div class="section-desc">勾选您近期出现的睡眠相关信号</div>
+      <div class="checkbox-grid" id="group-sleep">
+        <label class="checkbox-item"><input type="checkbox" value="入睡难"><div class="box"></div><div class="label">入睡难</div></label>
+        <label class="checkbox-item"><input type="checkbox" value="多梦易醒"><div class="box"></div><div class="label">多梦易醒</div></label>
+        <label class="checkbox-item"><input type="checkbox" value="早醒"><div class="box"></div><div class="label">早醒</div></label>
+        <label class="checkbox-item"><input type="checkbox" value="嗜睡"><div class="box"></div><div class="label">嗜睡</div></label>
+        <label class="checkbox-item"><input type="checkbox" value="睡醒乏力"><div class="box"></div><div class="label">睡醒乏力</div></label>
+      </div>
     </div>
-  </div>
 
-  <!-- 四肢类 -->
-  <div class="section">
-    <div class="section-title"><span class="icon">🦵</span>四肢类</div>
-    <div class="section-desc">勾选您近期出现的四肢相关信号</div>
-    <div class="checkbox-grid" id="group-limb">
-      <label class="checkbox-item"><input type="checkbox" value="手脚冰凉"><div class="box"></div><div class="label">手脚冰凉</div></label>
-      <label class="checkbox-item"><input type="checkbox" value="手脚心发热"><div class="box"></div><div class="label">手脚心发热</div></label>
-      <label class="checkbox-item"><input type="checkbox" value="肩颈酸痛"><div class="box"></div><div class="label">肩颈酸痛</div></label>
-      <label class="checkbox-item"><input type="checkbox" value="四肢乏力"><div class="box"></div><div class="label">四肢乏力</div></label>
-      <label class="checkbox-item"><input type="checkbox" value="水肿"><div class="box"></div><div class="label">水肿</div></label>
+    <!-- 头部类 -->
+    <div class="section">
+      <div class="section-title"><span class="icon">🧠</span>头部类</div>
+      <div class="section-desc">勾选您近期出现的头部相关信号</div>
+      <div class="checkbox-grid" id="group-head">
+        <label class="checkbox-item"><input type="checkbox" value="头晕"><div class="box"></div><div class="label">头晕</div></label>
+        <label class="checkbox-item"><input type="checkbox" value="头沉"><div class="box"></div><div class="label">头沉</div></label>
+        <label class="checkbox-item"><input type="checkbox" value="耳鸣"><div class="box"></div><div class="label">耳鸣</div></label>
+        <label class="checkbox-item"><input type="checkbox" value="眼干"><div class="box"></div><div class="label">眼干</div></label>
+        <label class="checkbox-item"><input type="checkbox" value="视物模糊"><div class="box"></div><div class="label">视物模糊</div></label>
+        <label class="checkbox-item"><input type="checkbox" value="频繁头痛"><div class="box"></div><div class="label">频繁头痛</div></label>
+      </div>
     </div>
-  </div>
 
-  <!-- 代谢精神类 -->
-  <div class="section">
-    <div class="section-title"><span class="icon">⚡</span>代谢精神类</div>
-    <div class="section-desc">勾选您近期出现的代谢/精神相关信号</div>
-    <div class="checkbox-grid" id="group-metab">
-      <label class="checkbox-item"><input type="checkbox" value="易疲劳"><div class="box"></div><div class="label">易疲劳</div></label>
-      <label class="checkbox-item"><input type="checkbox" value="气短"><div class="box"></div><div class="label">气短</div></label>
-      <label class="checkbox-item"><input type="checkbox" value="多汗"><div class="box"></div><div class="label">多汗</div></label>
-      <label class="checkbox-item"><input type="checkbox" value="怕冷"><div class="box"></div><div class="label">怕冷</div></label>
-      <label class="checkbox-item"><input type="checkbox" value="怕热"><div class="box"></div><div class="label">怕热</div></label>
-      <label class="checkbox-item"><input type="checkbox" value="虚胖"><div class="box"></div><div class="label">虚胖</div></label>
-      <label class="checkbox-item"><input type="checkbox" value="消瘦"><div class="box"></div><div class="label">消瘦</div></label>
+    <!-- 肠胃类 -->
+    <div class="section">
+      <div class="section-title"><span class="icon">🍽️</span>肠胃类</div>
+      <div class="section-desc">勾选您近期出现的肠胃相关信号</div>
+      <div class="checkbox-grid" id="group-stomach">
+        <label class="checkbox-item"><input type="checkbox" value="胃胀"><div class="box"></div><div class="label">胃胀</div></label>
+        <label class="checkbox-item"><input type="checkbox" value="反酸"><div class="box"></div><div class="label">反酸</div></label>
+        <label class="checkbox-item"><input type="checkbox" value="食欲不振"><div class="box"></div><div class="label">食欲不振</div></label>
+        <label class="checkbox-item"><input type="checkbox" value="大便干结"><div class="box"></div><div class="label">大便干结</div></label>
+        <label class="checkbox-item"><input type="checkbox" value="大便溏稀"><div class="box"></div><div class="label">大便溏稀</div></label>
+        <label class="checkbox-item"><input type="checkbox" value="腹胀"><div class="box"></div><div class="label">腹胀</div></label>
+      </div>
     </div>
-  </div>
 
-  <!-- 情绪类 -->
-  <div class="section">
-    <div class="section-title"><span class="icon">😤</span>情绪类</div>
-    <div class="section-desc">勾选您近期出现的情绪相关信号</div>
-    <div class="checkbox-grid" id="group-emotion">
-      <label class="checkbox-item"><input type="checkbox" value="烦躁易怒"><div class="box"></div><div class="label">烦躁易怒</div></label>
-      <label class="checkbox-item"><input type="checkbox" value="抑郁思虑"><div class="box"></div><div class="label">抑郁思虑</div></label>
-      <label class="checkbox-item"><input type="checkbox" value="压力大"><div class="box"></div><div class="label">压力大</div></label>
-      <label class="checkbox-item"><input type="checkbox" value="胸闷叹气"><div class="box"></div><div class="label">胸闷叹气</div></label>
+    <!-- 四肢类 -->
+    <div class="section">
+      <div class="section-title"><span class="icon">🦵</span>四肢类</div>
+      <div class="section-desc">勾选您近期出现的四肢相关信号</div>
+      <div class="checkbox-grid" id="group-limb">
+        <label class="checkbox-item"><input type="checkbox" value="手脚冰凉"><div class="box"></div><div class="label">手脚冰凉</div></label>
+        <label class="checkbox-item"><input type="checkbox" value="手脚心发热"><div class="box"></div><div class="label">手脚心发热</div></label>
+        <label class="checkbox-item"><input type="checkbox" value="肩颈酸痛"><div class="box"></div><div class="label">肩颈酸痛</div></label>
+        <label class="checkbox-item"><input type="checkbox" value="四肢乏力"><div class="box"></div><div class="label">四肢乏力</div></label>
+        <label class="checkbox-item"><input type="checkbox" value="水肿"><div class="box"></div><div class="label">水肿</div></label>
+      </div>
     </div>
-  </div>
 
-  <!-- 皮肤类 -->
-  <div class="section">
-    <div class="section-title"><span class="icon">🧴</span>皮肤类</div>
-    <div class="section-desc">勾选您近期出现的皮肤相关信号</div>
-    <div class="checkbox-grid" id="group-skin">
-      <label class="checkbox-item"><input type="checkbox" value="暗沉"><div class="box"></div><div class="label">暗沉</div></label>
-      <label class="checkbox-item"><input type="checkbox" value="长痘"><div class="box"></div><div class="label">长痘</div></label>
-      <label class="checkbox-item"><input type="checkbox" value="干燥"><div class="box"></div><div class="label">干燥</div></label>
-      <label class="checkbox-item"><input type="checkbox" value="瘙痒"><div class="box"></div><div class="label">瘙痒</div></label>
+    <!-- 代谢精神类 -->
+    <div class="section">
+      <div class="section-title"><span class="icon">⚡</span>代谢精神类</div>
+      <div class="section-desc">勾选您近期出现的代谢/精神相关信号</div>
+      <div class="checkbox-grid" id="group-metab">
+        <label class="checkbox-item"><input type="checkbox" value="易疲劳"><div class="box"></div><div class="label">易疲劳</div></label>
+        <label class="checkbox-item"><input type="checkbox" value="气短"><div class="box"></div><div class="label">气短</div></label>
+        <label class="checkbox-item"><input type="checkbox" value="多汗"><div class="box"></div><div class="label">多汗</div></label>
+        <label class="checkbox-item"><input type="checkbox" value="怕冷"><div class="box"></div><div class="label">怕冷</div></label>
+        <label class="checkbox-item"><input type="checkbox" value="怕热"><div class="box"></div><div class="label">怕热</div></label>
+        <label class="checkbox-item"><input type="checkbox" value="虚胖"><div class="box"></div><div class="label">虚胖</div></label>
+        <label class="checkbox-item"><input type="checkbox" value="消瘦"><div class="box"></div><div class="label">消瘦</div></label>
+      </div>
     </div>
-  </div>
 
-  <!-- 女性细分 -->
-  <div class="section">
-    <div class="section-title"><span class="icon">👩</span>女性细分（女性勾选）</div>
-    <div class="section-desc">仅女性用户勾选，男性可跳过</div>
-    <div class="checkbox-grid" id="group-female">
-      <label class="checkbox-item"><input type="checkbox" value="宫寒痛经"><div class="box"></div><div class="label">宫寒痛经</div></label>
-      <label class="checkbox-item"><input type="checkbox" value="女性气血不足"><div class="box"></div><div class="label">气血不足</div></label>
+    <!-- 情绪类 -->
+    <div class="section">
+      <div class="section-title"><span class="icon">😤</span>情绪类</div>
+      <div class="section-desc">勾选您近期出现的情绪相关信号</div>
+      <div class="checkbox-grid" id="group-emotion">
+        <label class="checkbox-item"><input type="checkbox" value="烦躁易怒"><div class="box"></div><div class="label">烦躁易怒</div></label>
+        <label class="checkbox-item"><input type="checkbox" value="抑郁思虑"><div class="box"></div><div class="label">抑郁思虑</div></label>
+        <label class="checkbox-item"><input type="checkbox" value="压力大"><div class="box"></div><div class="label">压力大</div></label>
+        <label class="checkbox-item"><input type="checkbox" value="胸闷叹气"><div class="box"></div><div class="label">胸闷叹气</div></label>
+      </div>
     </div>
-  </div>
 
-  <!-- 男性细分 -->
-  <div class="section">
-    <div class="section-title"><span class="icon">👨</span>男性细分（男性勾选）</div>
-    <div class="section-desc">仅男性用户勾选，女性可跳过</div>
-    <div class="checkbox-grid" id="group-male">
-      <label class="checkbox-item"><input type="checkbox" value="男性乏力腰酸"><div class="box"></div><div class="label">乏力腰酸</div></label>
+    <!-- 皮肤类 -->
+    <div class="section">
+      <div class="section-title"><span class="icon">🧴</span>皮肤类</div>
+      <div class="section-desc">勾选您近期出现的皮肤相关信号</div>
+      <div class="checkbox-grid" id="group-skin">
+        <label class="checkbox-item"><input type="checkbox" value="暗沉"><div class="box"></div><div class="label">暗沉</div></label>
+        <label class="checkbox-item"><input type="checkbox" value="长痘"><div class="box"></div><div class="label">长痘</div></label>
+        <label class="checkbox-item"><input type="checkbox" value="干燥"><div class="box"></div><div class="label">干燥</div></label>
+        <label class="checkbox-item"><input type="checkbox" value="瘙痒"><div class="box"></div><div class="label">瘙痒</div></label>
+      </div>
     </div>
-  </div>
 
-  <div class="btn-area">
-    <button class="btn btn-primary" onclick="submitTest()">🔍 开始辨证分析</button>
-    <button class="btn btn-secondary" onclick="resetAll()">🔄 重置全部选项</button>
-  </div>
+    <!-- 女性细分 -->
+    <div class="section">
+      <div class="section-title"><span class="icon">👩</span>女性细分（女性勾选）</div>
+      <div class="section-desc">仅女性用户勾选，男性可跳过</div>
+      <div class="checkbox-grid" id="group-female">
+        <label class="checkbox-item"><input type="checkbox" value="宫寒痛经"><div class="box"></div><div class="label">宫寒痛经</div></label>
+        <label class="checkbox-item"><input type="checkbox" value="女性气血不足"><div class="box"></div><div class="label">气血不足</div></label>
+      </div>
+    </div>
 
-  <div class="disclaimer">
-    ⚠️ 温馨提示：本内容仅为药食同源养生科普，不能替代医师诊断与临床治疗，身体持续不适请及时线下就医。
-  </div>
+    <!-- 男性细分 -->
+    <div class="section">
+      <div class="section-title"><span class="icon">👨</span>男性细分（男性勾选）</div>
+      <div class="section-desc">仅男性用户勾选，女性可跳过</div>
+      <div class="checkbox-grid" id="group-male">
+        <label class="checkbox-item"><input type="checkbox" value="男性乏力腰酸"><div class="box"></div><div class="label">乏力腰酸</div></label>
+      </div>
+    </div>
 
-  <div class="footer">
-    由 <span class="name">吕勇军·健康+保险</span> 提供技术支持
+    <div class="btn-area">
+      <button class="btn btn-primary" onclick="submitTest()">🔍 开始辨证分析</button>
+      <button class="btn btn-secondary" onclick="resetAll()">🔄 重置全部选项</button>
+    </div>
+
+    <div class="disclaimer">
+      ⚠️ 温馨提示：本内容仅为药食同源养生科普，不能替代医师诊断与临床治疗，身体持续不适请及时线下就医。
+    </div>
+
+    <div class="footer">
+      由 <span class="name">吕勇军·健康+保险</span> 提供技术支持
+    </div>
   </div>
 </div>
 
@@ -428,9 +553,70 @@ body {
 <script>
 // ========== 全局状态 ==========
 let selectedSymptoms = [];
+let leadName = '';
+let leadPhone = '';
+
+// ========== 客户信息表单提交 ==========
+async function submitLeadForm() {
+  const nameInput = document.getElementById('lf-name');
+  const phoneInput = document.getElementById('lf-phone');
+  const btn = document.getElementById('lf-btn');
+
+  const name = nameInput.value.trim();
+  const phone = phoneInput.value.trim();
+
+  // 简单验证
+  if (!name) {
+    nameInput.focus();
+    nameInput.parentElement.style.borderColor = '#c0392b';
+    setTimeout(() => { nameInput.parentElement.style.borderColor = '#eee'; }, 1500);
+    return;
+  }
+  if (!phone || !/^1\d{10}$/.test(phone)) {
+    phoneInput.focus();
+    phoneInput.parentElement.style.borderColor = '#c0392b';
+    setTimeout(() => { phoneInput.parentElement.style.borderColor = '#eee'; }, 1500);
+    return;
+  }
+
+  // 保存客户信息到全局变量（后续随结果一起发送）
+  leadName = name;
+  leadPhone = phone;
+
+  // 显示loading状态
+  btn.disabled = true;
+  btn.textContent = '正在提交...';
+
+  // 通过 Formspree 发送客户信息到邮箱
+  try {
+    const resp = await fetch('https://formspree.io/f/xpwzwkbl', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        name: name,
+        phone: phone,
+        source: '中医体质自测H5',
+        time: new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })
+      })
+    });
+    if (!resp.ok) throw new Error('network error');
+  } catch(e) {
+    // 即使网络失败也不阻挡用户继续测试
+    console.log('Lead form submit failed:', e);
+  }
+
+  // 显示成功状态，展开测试内容
+  document.getElementById('leadFormFields').style.display = 'none';
+  document.getElementById('leadSuccess').classList.add('show');
+  document.getElementById('testContent').style.display = 'block';
+
+  // 滚动到测试内容
+  setTimeout(() => {
+    document.getElementById('testContent').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 100);
+}
 
 // ========== 勾选交互（iOS/Android/微信兼容）==========
-// 通过事件委托处理所有勾选，避免label原生行为冲突
 function initCheckboxes() {
   document.getElementById('page-form').addEventListener('click', function(e) {
     const item = e.target.closest('.checkbox-item');
@@ -483,10 +669,8 @@ function backToForm() {
 
 // ========== 核心分析引擎 ==========
 function analyzeSymptoms(symptoms) {
-  // 体质辨证逻辑
   const analysis = tcmAnalyze(symptoms);
 
-  // 填充结果（延迟显示，模拟分析过程）
   setTimeout(() => {
     document.getElementById('loading').style.display = 'none';
     document.getElementById('result-content').style.display = 'block';
@@ -496,7 +680,6 @@ function analyzeSymptoms(symptoms) {
     document.getElementById('r-plan').innerHTML = analysis.plan;
     document.getElementById('r-advice').innerHTML = analysis.advice;
 
-    // 滚动到顶部
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, 1500);
 }
@@ -509,7 +692,6 @@ function analyzeSymptoms(symptoms) {
 // 所有分析必须串联"血液滋养细胞→细胞健康决定免疫代谢→亚健康由循环失衡产生"逻辑链，
 // 不能割裂现代细胞理论与中医食疗体系。
 function tcmAnalyze(symptoms) {
-  // ---- 1. 体质类型判定 ----
   const scores = { qi:0, xue:0, yin:0, yang:0, tan:0, shi:0, gan:0, pi:0 };
 
   const rules = {
@@ -527,12 +709,10 @@ function tcmAnalyze(symptoms) {
     Object.keys(rules).forEach(k => { if (rules[k].includes(s)) scores[k]++; });
   });
 
-  // 确定主体质
   let mainType = Object.keys(scores).sort((a,b) => scores[b]-scores[a])[0];
   let subType = Object.keys(scores).sort((a,b) => scores[b]-scores[a])[1];
   const totalScore = Object.values(scores).reduce((a,b)=>a+b,0);
 
-  // 体质名称映射
   const typeNames = {
     qi:'气虚体质', xue:'血瘀体质', yin:'阴虚体质', yang:'阳虚体质',
     tan:'痰湿体质', shi:'湿热体质', gan:'肝郁体质', pi:'脾胃虚寒体质'
@@ -548,7 +728,6 @@ function tcmAnalyze(symptoms) {
     pi:'脾胃虚寒，运化无力，营养吸收障碍'
   };
 
-  // ---- 2. 生成评估报告 ----
   const evalHtml = `
     <p>根据您勾选的 <strong>${symptoms.length} 项</strong> 身体信号，综合辨证结果为：</p>
     <p style="margin:12px 0;padding:12px;background:#fef9e7;border-radius:8px;">
@@ -559,7 +738,6 @@ function tcmAnalyze(symptoms) {
     <p>当前您的<strong>气血循环偏弱</strong>，血液中的氧气和营养物质运输不畅，导致全身细胞供能不足，出现上述一系列体感信号。这属于身体发出的早期预警，及时调理可从根源改善。</p>
   `;
 
-  // ---- 3. 原理讲解 ----
   const principleHtml = `
     <p><strong>① 现代细胞-血液循环原理</strong></p>
     <p>人体由约 40 万亿个细胞构成，细胞唯一的供养来源是<strong>全身血液循环</strong>。当您出现「${symptoms.slice(0,3).join('、')}」等信号时，说明血液运行不畅或血液质量下降，导致：</p>
@@ -585,10 +763,8 @@ function tcmAnalyze(symptoms) {
     </div>
   `;
 
-  // ---- 4. 调理方案 ----
   const planHtml = generatePlan(mainType, subType, symptoms);
 
-  // ---- 5. 就医提示 ----
   let level = '轻度';
   let adviceDetail = '';
   if (symptoms.length <= 3) {
@@ -615,7 +791,6 @@ function tcmAnalyze(symptoms) {
 
 // ========== 生成调理方案 ==========
 function generatePlan(mainType, subType, symptoms) {
-  // 根据体质类型生成对应药食同源方案
   const plans = {
     qi: {
       food: '① <strong>每日简易食疗</strong>：黄芪粥（黄芪15g+大米50g，每周3次）；党参炖鸡（党参20g+鸡肉，温补气血）；红枣桂圆汤（补心脾、养气血）。',
@@ -681,7 +856,6 @@ function generatePlan(mainType, subType, symptoms) {
 
 // ========== 分享功能 ==========
 function shareToWechat() {
-  // 微信环境下触发分享
   if (typeof WeixinJSBridge !== 'undefined') {
     WeixinJSBridge.invoke('shareTimeline', {
       title: '我的中医体质报告 · 吕勇军·健康+保险',
@@ -691,9 +865,6 @@ function shareToWechat() {
     alert('请在微信中打开此页面，点击右上角"..."分享给好友～');
   }
 }
-
-// ========== 微信 JS-SDK 初始化（可选，需服务端配合）==========
-// 如需完整分享功能，需在服务端生成签名，此处预留接口
 </script>
 
 </body>
