@@ -367,7 +367,13 @@ body {
 <div id="page-result" class="result-area">
   <div class="header">
     <h1>📋 体质辨证报告</h1>
-    <p>46年执业老中医 · 双逻辑分析</p>
+    <p style="font-size:11px;color:#fdebd0;margin-top:4px;">综合分析 · 双逻辑辨证</p>
+    <div style="background:#c0392b22;border:1px solid #c0392b55;border-radius:8px;padding:10px 12px;margin-top:10px;text-align:left;font-size:11px;color:#555;line-height:1.8;">
+      <strong style="color:#c0392b;">ⓘ 分析准则：</strong><br>
+      ① 综合全部勾选信号，区分主次失衡，优先追溯核心根源<br>
+      ② 串联"血液→细胞→免疫→亚健康"完整逻辑链<br>
+      ③ 融合现代细胞营养学与中医气血理论，不割裂两大体系
+    </div>
   </div>
 
   <div id="loading" class="loading">
@@ -488,6 +494,12 @@ function analyzeSymptoms(symptoms) {
 }
 
 // ========== TCM 分析核心 ==========
+// ⚠️ 精准度强制指令①【多信号交叉辨证】
+// 禁止单一信号片面判定体质！必须综合用户全部勾选信号，
+// 区分主次失衡问题，优先解决核心气血淤堵/亏虚根源。
+// ⚠️ 精准度强制指令②【核心理论绑定】
+// 所有分析必须串联"血液滋养细胞→细胞健康决定免疫代谢→亚健康由循环失衡产生"逻辑链，
+// 不能割裂现代细胞理论与中医食疗体系。
 function tcmAnalyze(symptoms) {
   // ---- 1. 体质类型判定 ----
   const scores = { qi:0, xue:0, yin:0, yang:0, tan:0, shi:0, gan:0, pi:0 };
