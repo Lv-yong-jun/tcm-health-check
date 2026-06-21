@@ -277,6 +277,35 @@ body {
 }
 .footer .name { color: #c0392b; font-weight: 600; }
 
+/* ========== 微信二维码卡片 ========== */
+.qrcode-card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px 18px;
+  margin: 16px 0;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(192,57,43,0.15);
+  border: 2px solid #f39c12;
+}
+.qrcode-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #c0392b;
+  margin-bottom: 14px;
+}
+.qrcode-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 12px;
+  border: 2px solid #eee;
+  object-fit: contain;
+}
+.qrcode-hint {
+  font-size: 12px;
+  color: #999;
+  margin-top: 10px;
+}
+
 .loading {
   text-align: center;
   padding: 40px 20px;
@@ -539,9 +568,15 @@ body {
       <button class="btn btn-secondary" onclick="backToForm()">🔄 重新自测</button>
     </div>
 
+    <!-- 加微信二维码 -->
+    <div class="qrcode-card">
+      <div class="qrcode-title">📱 扫码添加健康教练，获取专属调理方案</div>
+      <img src="qrcode-wechat.jpg" alt="微信二维码-吕勇军" class="qrcode-img">
+      <div class="qrcode-hint">长按识别二维码 → 添加「健康教练-吕勇军」为好友</div>
+    </div>
+
     <div class="disclaimer">
-      ⚠️ 温馨提示：本内容仅为药食同源养生科普，不能替代医师诊断与临床治疗，身体持续不适请及时线下就医。<br><br>
-      <strong>【吕勇军·健康+保险】</strong> 提供健康咨询与保险规划服务，欢迎咨询。
+      ⚠️ 温馨提示：本内容仅为药食同源养生科普，不能替代医师诊断与临床治疗，身体持续不适请及时线下就医。
     </div>
 
     <div class="footer">
@@ -587,21 +622,22 @@ async function submitLeadForm() {
   btn.disabled = true;
   btn.textContent = '正在提交...';
 
-  // 通过 Formspree 发送客户信息到邮箱
+  // 通过 Web3Forms 发送客户信息到邮箱
   try {
-    const resp = await fetch('https://formspree.io/f/xpwzwkbl', {
+    const formData = new FormData();
+    formData.append('access_key', 'a3f2e8d7-4c1b-4f9e-8a5d-2b7c6e1f0d9a');
+    formData.append('subject', '【中医体质自测】新客户咨询');
+    formData.append('name', name);
+    formData.append('phone', phone);
+    formData.append('来源', '中医体质自测H5');
+    formData.append('时间', new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }));
+    
+    const resp = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({
-        name: name,
-        phone: phone,
-        source: '中医体质自测H5',
-        time: new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })
-      })
+      body: formData
     });
     if (!resp.ok) throw new Error('network error');
   } catch(e) {
-    // 即使网络失败也不阻挡用户继续测试
     console.log('Lead form submit failed:', e);
   }
 
