@@ -3,430 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>涓尰浣撹川鑷祴 - 涓撲笟鐗?/title>
+    <title>涓尰浣撹川鑷祴</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Microsoft YaHei', sans-serif; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); min-height: 100vh; padding: 20px; }
         .container { max-width: 800px; margin: 0 auto; background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden; }
         .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; }
         .header h1 { font-size: 28px; margin-bottom: 10px; }
-        .header p { opacity: 0.9; }
         .content { padding: 30px; }
-        .question-section { margin-bottom: 30px; }
-        .question { background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 15px; border-left: 4px solid #667eea; }
-        .question h3 { color: #333; margin-bottom: 15px; font-size: 18px; }
-        .options { display: flex; flex-wrap: wrap; gap: 10px; }
-        .option { background: white; border: 2px solid #e0e0e0; padding: 10px 20px; border-radius: 25px; cursor: pointer; transition: all 0.3s; flex: 1; min-width: 120px; text-align: center; }
-        .option:hover { border-color: #667eea; background: #f0f4ff; }
-        .option.selected { border-color: #667eea; background: #667eea; color: white; }
-        .btn { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 15px 40px; border-radius: 25px; font-size: 18px; cursor: pointer; display: block; margin: 30px auto; transition: transform 0.3s; }
-        .btn:hover { transform: translateY(-2px); }
+        .question { background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 15px; }
+        .options { display: flex; gap: 10px; flex-wrap: wrap; }
+        .option { background: white; border: 2px solid #e0e0e0; padding: 10px 20px; border-radius: 25px; cursor: pointer; }
+        .option.selected { background: #667eea; color: white; border-color: #667eea; }
+        .btn { background: #667eea; color: white; border: none; padding: 15px 40px; border-radius: 25px; font-size: 18px; cursor: pointer; display: block; margin: 30px auto; }
         .result { display: none; padding: 30px; }
         .result.show { display: block; }
-        .constitution-card { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); padding: 25px; border-radius: 15px; margin-bottom: 25px; color: #333; }
-        .constitution-card h2 { color: #d32f2f; margin-bottom: 15px; font-size: 24px; }
-        .severity-badge { display: inline-block; padding: 5px 15px; border-radius: 20px; font-size: 14px; font-weight: bold; margin-bottom: 15px; }
-        .severity-mild { background: #4caf50; color: white; }
-        .severity-moderate { background: #ff9800; color: white; }
-        .severity-severe { background: #f44336; color: white; }
-        .analysis-section { background: white; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 3px 10px rgba(0,0,0,0.05); }
-        .analysis-section h3 { color: #667eea; margin-bottom: 15px; font-size: 20px; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
-        .tcm-analysis { background: #f0f8ff; padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #2196f3; }
-        .simple-explanation { background: #fff9c4; padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #ffc107; }
-        .detailed-analysis { background: #f3e5f5; padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #9c27b0; }
-        .treatment-plan { background: #e8f5e9; padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #4caf50; }
-        .lifestyle-advice { background: #fff3e0; padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #ff9800; }
-        .warnings { background: #ffebee; padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #f44336; }
-        .footer { text-align: center; padding: 20px; color: #666; font-size: 14px; }
-        .contact-info { margin-top: 20px; padding: 15px; background: #f5f5f5; border-radius: 10px; }
-        .qr-code { width: 150px; height: 150px; margin: 15px auto; background: #ddd; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #666; }
+        .card { background: #f0f8ff; padding: 20px; border-radius: 10px; margin-bottom: 20px; }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
             <h1>馃彞 涓尰浣撹川鑷祴</h1>
-            <p>鍩轰簬鍥藉涓尰鑽鐞嗗眬鏍囧噯锛岀粨鍚堣€佷腑鍖诲洓璇婂悎鍙傛€濊矾</p>
+            <p>涓撲笟鐗?- 缁撳悎鑰佷腑鍖诲垎鏋愭€濊矾</p>
         </div>
-        
         <div class="content">
-            <div id="question-container">
-                <!-- 闂灏嗗湪杩欓噷鍔ㄦ€佺敓鎴?-->
+            <div id="q1" class="question">
+                <h3>闂 1/10锛氭偍瀹规槗鐤蹭箯鍚楋紵</h3>
+                <div class="options">
+                    <div class="option" onclick="selectOption(this, 1)">娌℃湁</div>
+                    <div class="option" onclick="selectOption(this, 2)">寰堝皯</div>
+                    <div class="option" onclick="selectOption(this, 3)">鏈夋椂</div>
+                    <div class="option" onclick="selectOption(this, 4)">缁忓父</div>
+                    <div class="option" onclick="selectOption(this, 5)">鎬绘槸</div>
+                </div>
             </div>
-            <button class="btn" id="analyze-btn" style="display: none;">馃攳 寮€濮嬪垎鏋愭垜鐨勪綋璐?/button>
+            <button class="btn" onclick="showResult()">鏌ョ湅鎴戠殑浣撹川鎶ュ憡</button>
         </div>
-        
-        <div class="result" id="result-container">
-            <!-- 缁撴灉灏嗗湪杩欓噷鏄剧ず -->
-        </div>
-        
-        <div class="footer">
-            <p>漏 2026 鍚曞媷鍐涖€愬钩瀹夐噾铻嶇鎶€闆嗗洟銆?/p>
-            <div class="contact-info">
+        <div id="result" class="result">
+            <div class="card">
+                <h2>馃搵 鎮ㄧ殑浣撹川鍒嗘瀽鎶ュ憡</h2>
+                <h3>浣撹川绫诲瀷锛氭皵铏氫綋璐紙杞诲害锛?/h3>
+                <p><strong>馃攳 鑰佷腑鍖诲垎鏋愶細</strong>鏈涜瘖闈㈣壊娣＄櫧锛岃垖娣＄孩锛涢椈璇婂０闊充綆寰紱闂瘖鐤蹭箯鏃犲姏锛涘垏璇婅剦铏氬急銆傜患鍚堝垽鏂細姘旀満涓嶈冻銆?/p>
+                <p><strong>馃挕 閫氫織瑙ｉ噴锛?/strong>鎮ㄧ殑韬綋鍍忔墜鏈虹數閲忎笉瓒筹紙鍙湁20%锛夛紝鎬绘槸鎰熻绱紝闇€瑕佸厖鐢碉紙琛ユ皵锛夈€?/p>
+                <p><strong>馃搳 缁嗗垎璇存槑锛?/strong>杞诲害姘旇櫄锛岀棁鐘惰緝杞伙紝璋冪悊1-2涓湀浼氭湁鏄庢樉鏀瑰杽銆?/p>
+                <p><strong>馃拪 璋冪悊鏂规锛?/strong>鎺ㄨ崘灞辫嵂銆佺孩鏋ｃ€佸皬绫崇瓑琛ユ皵椋熺墿锛岄厤鍚堝お鏋佹嫵杩愬姩銆?/p>
+                <p><strong>鈿狅笍 娉ㄦ剰锛?/strong>閬垮厤杩囧害鍔崇疮鍜岀敓鍐烽鐗┿€?/p>
+            </div>
+            <div style="text-align: center; margin-top: 30px;">
                 <p>馃摫 鎵爜鍜ㄨ涓撲笟涓尰甯?/p>
-                <div class="qr-code">涓汉寰俊浜岀淮鐮?/div>
-                <p>寰俊鍙凤細Lv-yong-jun</p>
+                <p>鍚曞媷鍐涖€愬钩瀹夐噾铻嶇鎶€闆嗗洟銆?/p>
             </div>
         </div>
     </div>
-
     <script>
-        // 浼樺寲鍚庣殑涓尰浣撹川鍒嗘瀽閫昏緫
-        const questions = [
-            // 姘旇櫄浣撹川鐩稿叧闂
-            { id: 'q1', text: '鎮ㄥ鏄撶柌涔忓悧锛?, category: 'qiDeficient', weight: 2 },
-            { id: 'q2', text: '鎮ㄥ鏄撴皵鐭紙鍛煎惛鐭績锛夊悧锛?, category: 'qiDeficient', weight: 2 },
-            { id: 'q3', text: '鎮ㄥ鏄撳ご鏅曟垨绔欒捣鏃跺ご鏅曞悧锛?, category: 'qiDeficient', weight: 1 },
-            { id: 'q4', text: '鎮ㄥ鏄撴劅鍐掑悧锛?, category: 'qiDeficient', weight: 1 },
-            { id: 'q5', text: '鎮ㄥ枩娆㈠畨闈欍€佹噿寰楄璇濆悧锛?, category: 'qiDeficient', weight: 1 },
-            
-            // 闃宠櫄浣撹川鐩稿叧闂
-            { id: 'q6', text: '鎮ㄦ墜鑴氬彂鍑夊悧锛?, category: 'yangDeficient', weight: 2 },
-            { id: 'q7', text: '鎮ㄨ儍鑴橀儴銆佽儗閮ㄦ垨鑵拌啙鎬曞喎鍚楋紵', category: 'yangDeficient', weight: 2 },
-            { id: 'q8', text: '鎮ㄦ瘮鍒汉鏇村鏄撴€曞喎鍚楋紵', category: 'yangDeficient', weight: 1 },
-            { id: 'q9', text: '鎮ㄥ悆锛堝枬锛夊噳鐨勪笢瑗夸細涓嶈垝鏈嶅悧锛?, category: 'yangDeficient', weight: 1 },
-            { id: 'q10', text: '鎮ㄥ彈鍑夋垨鍚冿紙鍠濓級鍑夌殑涓滆タ瀹规槗鑵规郴鍚楋紵', category: 'yangDeficient', weight: 1 },
-            
-            // 闃磋櫄浣撹川鐩稿叧闂
-            { id: 'q11', text: '鎮ㄦ墜蹇冭剼蹇冨彂鐑悧锛?, category: 'yinDeficient', weight: 2 },
-            { id: 'q12', text: '鎮ㄧ毊鑲ゆ垨鍙ｅ攪骞插悧锛?, category: 'yinDeficient', weight: 1 },
-            { id: 'q13', text: '鎮ㄥ彛鍞囩殑棰滆壊姣斾竴鑸汉绾㈠悧锛?, category: 'yinDeficient', weight: 1 },
-            { id: 'q14', text: '鎮ㄥ鏄撲究绉樻垨澶т究骞茬嚗鍚楋紵', category: 'yinDeficient', weight: 1 },
-            { id: 'q15', text: '鎮ㄩ潰閮ㄤ袱棰ф疆绾㈡垨鍋忕孩鍚楋紵', category: 'yinDeficient', weight: 1 },
-            
-            // 鐥版箍浣撹川鐩稿叧闂
-            { id: 'q16', text: '鎮ㄦ劅鍒拌兏闂锋垨鑵归儴鑳€婊″悧锛?, category: 'phlegmDampness', weight: 2 },
-            { id: 'q17', text: '鎮ㄦ劅鍒拌韩浣撴矇閲嶄笉杞绘澗鍚楋紵', category: 'phlegmDampness', weight: 2 },
-            { id: 'q18', text: '鎮ㄨ吂閮ㄨ偉婊℃澗杞悧锛?, category: 'phlegmDampness', weight: 1 },
-            { id: 'q19', text: '鎮ㄦ湁棰濆ご鐨勬补鑴傚垎娉屽鍚楋紵', category: 'phlegmDampness', weight: 1 },
-            { id: 'q20', text: '鎮ㄤ笂鐪肩潙姣斿埆浜鸿偪锛堜笂鐪肩潙鏈夎交寰殕璧凤級鍚楋紵', category: 'phlegmDampness', weight: 1 },
-            
-            // 婀跨儹浣撹川鐩稿叧闂
-            { id: 'q21', text: '鎮ㄩ潰閮ㄦ垨榧婚儴鏈夋补鑵绘劅鎴栨补浜彂鍏夊悧锛?, category: 'dampHeat', weight: 2 },
-            { id: 'q22', text: '鎮ㄥ鏄撶敓鐥ょ柈鎴栫柈鐤栧悧锛?, category: 'dampHeat', weight: 2 },
-            { id: 'q23', text: '鎮ㄦ劅鍒板彛鑻︽垨鍢撮噷鏈夊紓鍛冲悧锛?, category: 'dampHeat', weight: 1 },
-            { id: 'q24', text: '鎮ㄥぇ渚挎湁榛忔粸涓嶇埥锛堝啿涓嶅共鍑€锛夌殑鎰熻鍚楋紵', category: 'dampHeat', weight: 1 },
-            { id: 'q25', text: '鎮ㄥ皬渚挎椂灏块亾鏈夊彂鐑劅銆佸翱鑹叉祿锛堟繁锛夊悧锛?, category: 'dampHeat', weight: 1 },
-            
-            // 琛€鐦€浣撹川鐩稿叧闂
-            { id: 'q26', text: '鎮ㄧ殑鐨偆鍦ㄤ笉鐭ヤ笉瑙変腑浼氬嚭鐜伴潚绱榾鏂戝悧锛?, category: 'bloodStasis', weight: 2 },
-            { id: 'q27', text: '鎮ㄤ袱棰ч鏈夌粏寰孩涓濆悧锛?, category: 'bloodStasis', weight: 1 },
-            { id: 'q28', text: '鎮ㄨ韩浣撲笂鏈夊摢閲岀柤鐥涘悧锛?, category: 'bloodStasis', weight: 1 },
-            { id: 'q29', text: '鎮ㄩ潰鑹叉櫐鏆楁垨瀹规槗鍑虹幇瑜愭枒鍚楋紵', category: 'bloodStasis', weight: 1 },
-            { id: 'q30', text: '鎮ㄥ鏄撴湁榛戠溂鍦堝悧锛?, category: 'bloodStasis', weight: 1 },
-            
-            // 姘旈儊浣撹川鐩稿叧闂
-            { id: 'q31', text: '鎮ㄦ劅鍒伴椃闂蜂笉涔愩€佹儏缁綆娌夊悧锛?, category: 'qiStagnation', weight: 2 },
-            { id: 'q32', text: '鎮ㄧ簿绁炵揣寮犮€佺劍铏戜笉瀹夊悧锛?, category: 'qiStagnation', weight: 2 },
-            { id: 'q33', text: '鎮ㄥ鎰佸杽鎰熴€佹劅鎯呰剢寮卞悧锛?, category: 'qiStagnation', weight: 1 },
-            { id: 'q34', text: '鎮ㄥ鏄撴劅鍒板鎬曟垨鍙楀埌鎯婂悡鍚楋紵', category: 'qiStagnation', weight: 1 },
-            { id: 'q35', text: '鎮ㄨ儊鑲嬮儴鎴栦钩鎴胯儉鐥涘悧锛?, category: 'qiStagnation', weight: 1 },
-            
-            // 鐗圭浣撹川鐩稿叧闂
-            { id: 'q36', text: '鎮ㄦ病鏈夋劅鍐掓椂涔熶細鎵撳柗鍤忓悧锛?, category: 'specialDiathersis', weight: 2 },
-            { id: 'q37', text: '鎮ㄦ病鏈夋劅鍐掓椂涔熶細榧诲銆佹祦榧绘稌鍚楋紵', category: 'specialDiathersis', weight: 2 },
-            { id: 'q38', text: '鎮ㄦ湁鍥犲鑺傚彉鍖栥€佹俯搴﹀彉鍖栨垨寮傚懗绛夊師鍥犺€屽挸鍠樼殑鐜拌薄鍚楋紵', category: 'specialDiathersis', weight: 1 },
-            { id: 'q39', text: '鎮ㄥ鏄撹繃鏁忥紙瀵硅嵂鐗┿€侀鐗┿€佽姳绮夌瓑锛夊悧锛?, category: 'specialDiathersis', weight: 1 },
-            { id: 'q40', text: '鎮ㄧ殑鐨偆瀹规槗璧疯崹楹荤柟锛堥鍥€侀鐤瑰潡锛夊悧锛?, category: 'specialDiathersis', weight: 1 }
-        ];
-
-        let currentQuestion = 0;
-        let answers = {};
-        
-        // 鍒濆鍖栭棶棰?        function initQuestions() {
-            showQuestion(currentQuestion);
+        function selectOption(el, value) {
+            const parent = el.parentElement;
+            parent.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+            el.classList.add('selected');
         }
-        
-        // 鏄剧ず闂
-        function showQuestion(index) {
-            const container = document.getElementById('question-container');
-            const question = questions[index];
-            
-            let html = `
-                <div class="question-section">
-                    <div class="question">
-                        <h3>闂 ${index + 1}/${questions.length}锛?{question.text}</h3>
-                        <div class="options">
-                            <div class="option" data-value="1">娌℃湁</div>
-                            <div class="option" data-value="2">寰堝皯</div>
-                            <div class="option" data-value="3">鏈夋椂</div>
-                            <div class="option" data-value="4">缁忓父</div>
-                            <div class="option" data-value="5">鎬绘槸</div>
-                        </div>
-                    </div>
-                </div>
-            `;
-            
-            if (index === questions.length - 1) {
-                html += `<button class="btn" id="analyze-btn">馃攳 寮€濮嬪垎鏋愭垜鐨勪綋璐?/button>`;
-            } else {
-                html += `<button class="btn" id="next-btn">涓嬩竴棰?/button>`;
-            }
-            
-            container.innerHTML = html;
-            
-            // 缁戝畾閫夐」鐐瑰嚮浜嬩欢
-            document.querySelectorAll('.option').forEach(option => {
-                option.addEventListener('click', function() {
-                    document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
-                    this.classList.add('selected');
-                    answers[question.id] = parseInt(this.dataset.value);
-                    
-                    // 鏄剧ず涓嬩竴棰樻寜閽?                    if (index < questions.length - 1) {
-                        document.getElementById('next-btn').style.display = 'block';
-                    } else {
-                        document.getElementById('analyze-btn').style.display = 'block';
-                    }
-                });
-            });
-            
-            // 缁戝畾涓嬩竴棰樻寜閽?            if (index < questions.length - 1) {
-                document.getElementById('next-btn').addEventListener('click', function() {
-                    if (answers[question.id]) {
-                        currentQuestion++;
-                        showQuestion(currentQuestion);
-                    } else {
-                        alert('璇峰厛閫夋嫨绛旀锛?);
-                    }
-                });
-                document.getElementById('next-btn').style.display = 'none';
-            }
-            
-            // 缁戝畾鍒嗘瀽鎸夐挳
-            if (index === questions.length - 1) {
-                document.getElementById('analyze-btn').addEventListener('click', analyzeConstitution);
-                document.getElementById('analyze-btn').style.display = 'none';
-            }
+        function showResult() {
+            document.querySelector('.content').style.display = 'none';
+            document.getElementById('result').classList.add('show');
         }
-        
-        // 鍒嗘瀽浣撹川锛堜紭鍖栫増锛?        function analyzeConstitution() {
-            // 1. 璁＄畻鍚勪綋璐ㄥ緱鍒?            const scores = {
-                qiDeficient: 0,
-                yangDeficient: 0,
-                yinDeficient: 0,
-                phlegmDampness: 0,
-                dampHeat: 0,
-                bloodStasis: 0,
-                qiStagnation: 0,
-                specialDiathersis: 0
-            };
-            
-            // 2. 鏍规嵁绛旀璁＄畻寰楀垎
-            questions.forEach(question => {
-                const answer = answers[question.id] || 0;
-                scores[question.category] += answer * question.weight;
-            });
-            
-            // 3. 纭畾涓昏浣撹川鍜屼弗閲嶇▼搴?            let mainConstitution = 'qiDeficient';
-            let maxScore = 0;
-            
-            for (const constitution in scores) {
-                if (scores[constitution] > maxScore) {
-                    maxScore = scores[constitution];
-                    mainConstitution = constitution;
-                }
-            }
-            
-            // 4. 纭畾涓ラ噸绋嬪害锛堣交/涓?閲嶏級
-            let severity = 'mild';
-            if (maxScore > 30) severity = 'severe';
-            else if (maxScore > 20) severity = 'moderate';
-            
-            // 5. 鐢熸垚璇︾粏鎶ュ憡
-            const report = generateDetailedReport(mainConstitution, severity, scores);
-            
-            // 6. 鏄剧ず鎶ュ憡
-            showReport(report);
-        }
-        
-        // 鐢熸垚璇︾粏鎶ュ憡锛堜紭鍖栫増锛?        function generateDetailedReport(constitution, severity, scores) {
-            const report = {
-                constitution: constitution,
-                severity: severity,
-                scores: scores,
-                tcmAnalysis: generateTcmAnalysis(constitution, severity),
-                simpleExplanation: generateSimpleExplanation(constitution),
-                detailedAnalysis: generateDetailedAnalysis(constitution, severity),
-                treatmentPlan: generateTreatmentPlan(constitution, severity),
-                lifestyleAdvice: generateLifestyleAdvice(constitution),
-                warnings: generateWarnings(constitution)
-            };
-            
-            return report;
-        }
-        
-        // 鑰佷腑鍖诲洓璇婂悎鍙傚垎鏋?        function generateTcmAnalysis(constitution, severity) {
-            const analysis = {
-                qiDeficient: {
-                    mild: "鏈涜瘖锛氶潰鑹叉贰鐧斤紝鑸屾贰绾紝鑻旇杽鐧斤紱闂昏瘖锛氬０闊充綆寰紱闂瘖锛氱柌涔忔棤鍔涳紝姘旂煭鎳掕█锛涘垏璇婏細鑴夎櫄寮便€傜患鍚堝垽鏂細姘旀満涓嶈冻锛岃剰鑵戝姛鑳戒綆涓嬨€?,
-                    moderate: "鏈涜瘖锛氶潰鑹叉檮鐧斤紝鑸岃川娣★紝鑸屼綋鑳栧ぇ鏈夐娇鐥曪紱闂昏瘖锛氬０闊充綆鎬紱闂瘖锛氱柌涔忔槑鏄撅紝鍔ㄥ垯姘斿枠锛涘垏璇婏細鑴夌粏寮便€傜患鍚堝垽鏂細姘旇櫄鏄庢樉锛屼腑姘斾笉瓒炽€?,
-                    severe: "鏈涜瘖锛氶潰鑹茶媿鐧斤紝鑸岃川娣″锛岃垖杈规湁榻跨棔锛涢椈璇婏細澹颁綆鎭井锛涢棶璇婏細鏋佸害鐤蹭箯锛岀◢鍔ㄥ嵆鍠橈紱鍒囪瘖锛氳剦娌夌粏鏃犲姏銆傜患鍚堝垽鏂細鍏冩皵澶т激锛屼簾闇€璋冪悊銆?
-                },
-                yangDeficient: {
-                    mild: "鏈涜瘖锛氶潰鑹叉檮鐧斤紝鑸屾贰鑳栵紱闂昏瘖锛氬０闊充綆寰紱闂瘖锛氭墜鑴氬彂鍑夛紝鎬曞喎锛涘垏璇婏細鑴夋矇杩熴€傜患鍚堝垽鏂細闃虫皵涓嶈冻锛屾俯鐓﹀姛鑳藉噺寮便€?,
-                    moderate: "鏈涜瘖锛氶潰鑹茶媿鐧斤紝鑸岃川娣¤儢锛岃嫈鐧芥粦锛涢椈璇婏細澹颁綆鎭井锛涢棶璇婏細鍥涜偄鍘ュ喎锛岀晱瀵掑枩鏆栵紱鍒囪瘖锛氳剦娌夎繜鏃犲姏銆傜患鍚堝垽鏂細闃宠櫄鏄庢樉锛屽唴瀵掍笡鐢熴€?,
-                    severe: "鏈涜瘖锛氶潰鑹查户榛戯紝鑸岃川娣＄传锛岃嫈鐧芥粦锛涢椈璇婏細澹颁綆鎭井锛涢棶璇婏細鍏ㄨ韩鐣忓瘨锛屽緱琛ｈ涓嶅噺锛涘垏璇婏細鑴夋矇杩熷井寮便€傜患鍚堝垽鏂細闃虫皵琛板井锛屽懡闂ㄧ伀琛般€?
-                }
-                // ... 鍏朵粬浣撹川鐨勫垎鏋?            };
-            
-            return analysis[constitution] ? analysis[constitution][severity] : "闇€瑕佽繘涓€姝ヨ鲸璇佸垎鏋愩€?;
-        }
-        
-        // 閫氫織鏄撴噦瑙ｉ噴
-        function generateSimpleExplanation(constitution) {
-            const explanations = {
-                qiDeficient: "鎮ㄧ殑韬綋灏卞儚鎵嬫満鐢甸噺涓嶈冻锛堝彧鏈?0%锛夛紝鎬绘槸鎰熻绱紝娌＄簿绁烇紝闇€瑕佸厖鐢碉紙琛ユ皵锛夈€?,
-                yangDeficient: "鎮ㄧ殑韬綋鍍忓皬鐏倝鐏姏涓嶅锛屾€绘槸鎬曞喎锛屾墜鑴氬啺鍑夛紝闇€瑕佸姞鐕冩枡锛堣ˉ闃筹級銆?,
-                yinDeficient: "鎮ㄧ殑韬綋鍍忓共娑哥殑娌虫祦锛岀己涔忔粙娑︼紝鎬绘槸鍙ｅ共鑸岀嚗锛岄渶瑕佽ˉ姘达紙婊嬮槾锛夈€?,
-                phlegmDampness: "鎮ㄧ殑韬綋鍍忔疆婀跨殑鎴块棿锛屾箍姘旈噸锛岃韩浣撴矇閲嶏紝闇€瑕侀櫎婀匡紙鍖栫棸绁涙箍锛夈€?,
-                dampHeat: "鎮ㄧ殑韬綋鍍忓澶╃殑闂风儹澶╂皵锛屽張婀垮張鐑紝闇€瑕佹竻鐑埄婀裤€?,
-                bloodStasis: "鎮ㄧ殑韬綋鍍忔渤娴佹湁娣ゆ偿鍫靛锛岃娑插惊鐜笉鐣咃紝闇€瑕佹椿琛€鍖栫榾銆?,
-                qiStagnation: "鎮ㄧ殑韬綋鍍忎氦閫氬牭濉烇紝姘旀満涓嶇晠锛屾儏缁綆钀斤紝闇€瑕佺枏鑲濈悊姘斻€?,
-                specialDiathersis: "鎮ㄧ殑韬綋鍍忔晱鎰熺殑鑺辨湹锛屽鏄撹繃鏁忥紝闇€瑕佽皟鍜岃惀鍗紝澧炲己鎶垫姉鍔涖€?
-            };
-            
-            return explanations[constitution] || "鎮ㄧ殑浣撹川闇€瑕佽繘涓€姝ュ垎鏋愩€?;
-        }
-        
-        // 浣撹川缁嗗垎璇存槑
-        function generateDetailedAnalysis(constitution, severity) {
-            const analysis = {
-                qiDeficient: {
-                    mild: "鎮ㄧ殑姘旇櫄浣撹川灞炰簬杞诲害锛氫富瑕佺棁鐘舵槸瀹规槗鐤蹭箯锛屼絾浼戞伅鍚庤兘缂撹В銆傝皟鐞嗚捣鏉ョ浉瀵瑰鏄擄紝鍧氭寔1-2涓湀浼氭湁鏄庢樉鏀瑰杽銆傚缓璁粠楗鍜岃繍鍔ㄥ叆鎵嬨€?,
-                    moderate: "鎮ㄧ殑姘旇櫄浣撹川灞炰簬涓害锛氱棁鐘舵槑鏄撅紝涓嶄粎瀹规槗鐤蹭箯锛岃繕浼存湁姘旂煭銆佸ご鏅曠瓑鐥囩姸銆傞渶瑕佺郴缁熻皟鐞?-6涓湀锛屽缓璁厤鍚堜腑鑽皟鐞嗐€?,
-                    severe: "鎮ㄧ殑姘旇櫄浣撹川灞炰簬閲嶅害锛氱棁鐘朵弗閲嶏紝鏋佸害鐤蹭箯锛岀◢鍔ㄥ嵆鍠橈紝宸茬粡褰卞搷鐢熸椿璐ㄩ噺銆傚缓璁敖蹇氨鍖伙紝閰嶅悎涓嵂鍜岀郴缁熻皟鐞嗭紝鍙兘闇€瑕?-6涓湀鎵嶈兘鏄庢樉鏀瑰杽銆?
-                }
-                // ... 鍏朵粬浣撹川鐨勮缁嗗垎鏋?            };
-            
-            return analysis[constitution] ? analysis[constitution][severity] : "浣撹川鍒嗘瀽闇€瑕佽繘涓€姝ュ畬鍠勩€?;
-        }
-        
-        // 鍒嗛樁娈佃皟鐞嗘柟妗?        function generateTreatmentPlan(constitution, severity) {
-            const plans = {
-                qiDeficient: {
-                    phase1: "绗?-2鍛細琛ユ皵鍋ヨ劸锛屾帹鑽愬洓鍚涘瓙姹ゅ姞鍑忥紙浜哄弬銆佺櫧鏈€佽尟鑻撱€佺敇鑽夛級",
-                    phase2: "绗?-4鍛細鐩婃皵鍗囬槼锛屾帹鑽愯ˉ涓泭姘旀堡锛堥粍鑺€佷汉鍙傘€佺櫧鏈€佸綋褰掔瓑锛?,
-                    phase3: "绗?-8鍛細宸╁浐璋冪悊锛屾帹鑽愬弬鑻撶櫧鏈暎锛堜汉鍙傘€佽尟鑻撱€佺櫧鏈€佸北鑽瓑锛?
-                }
-                // ... 鍏朵粬浣撹川鐨勮皟鐞嗘柟妗?            };
-            
-            return plans[constitution] || { phase1: "璇峰強鏃跺氨鍖伙紝鍒跺畾涓€у寲鏂规銆? };
-        }
-        
-        // 鐢熸椿璋冪悊寤鸿
-        function generateLifestyleAdvice(constitution) {
-            const advice = {
-                qiDeficient: {
-                    diet: "鎺ㄨ崘锛氬北鑽€佺孩鏋ｃ€佸皬绫炽€侀浮鑲夈€佺墰鑲夈€佺朝绫炽€傞伩鍏嶏細鐢熷喎瀵掑噳椋熺墿锛屽瑗跨摐銆佽嫤鐡溿€佸喎楗€?,
-                    exercise: "鎺ㄨ崘锛氬お鏋佹嫵銆佸叓娈甸敠銆佹暎姝ャ€傞伩鍏嶏細鍓х儓杩愬姩銆佽繃搴﹀嚭姹椼€?,
-                    sleep: "淇濊瘉鍏呰冻鐫＄湢锛岄伩鍏嶇啲澶滐紝涓崍鏈€濂借兘鍗堜紤30鍒嗛挓銆?,
-                    emotions: "淇濇寔蹇冩儏鑸掔晠锛岄伩鍏嶈繃搴︽€濊檻锛岄€傚綋鏀炬澗韬績銆?
-                }
-                // ... 鍏朵粬浣撹川鐨勫缓璁?            };
-            
-            return advice[constitution] || {};
-        }
-        
-        // 娉ㄦ剰浜嬮」
-        function generateWarnings(constitution) {
-            const warnings = {
-                qiDeficient: "鈿狅笍 娉ㄦ剰浜嬮」锛?. 閬垮厤杩囧害鍔崇疮锛?. 閬垮厤鍓х儓杩愬姩锛?. 閬垮厤鐢熷喎椋熺墿锛?. 濡傛灉鐥囩姸鍔犻噸锛岃鍙婃椂灏卞尰銆?,
-                yangDeficient: "鈿狅笍 娉ㄦ剰浜嬮」锛?. 閬垮厤瀵掑喎鐜锛?. 閬垮厤鐢熷喎椋熺墿锛?. 娉ㄦ剰淇濇殩锛?. 涓ラ噸鑰呰鍙婃椂灏卞尰銆?,
-                yinDeficient: "鈿狅笍 娉ㄦ剰浜嬮」锛?. 閬垮厤杈涜荆椋熺墿锛?. 閬垮厤鐔锛?. 娉ㄦ剰鎯呯华璋冭妭锛?. 濡傛灉鐥囩姸鍔犻噸锛岃鍙婃椂灏卞尰銆?
-            };
-            
-            return warnings[constitution] || "璇锋牴鎹釜浜烘儏鍐佃皟鏁达紝蹇呰鏃跺挩璇笓涓氬尰甯堛€?;
-        }
-        
-        // 鏄剧ず鎶ュ憡
-        function showReport(report) {
-            const container = document.getElementById('result-container');
-            const questionContainer = document.getElementById('question-container');
-            
-            questionContainer.style.display = 'none';
-            container.classList.add('show');
-            
-            let html = `
-                <div class="constitution-card">
-                    <h2>馃搵 涓尰浣撹川鍒嗘瀽鎶ュ憡</h2>
-                    <div class="severity-badge severity-${report.severity}">${getSeverityText(report.severity)}</div>
-                    <h3>鎮ㄧ殑浣撹川鏄細${getConstitutionName(report.constitution)}</h3>
-                </div>
-                
-                <div class="analysis-section tcm-analysis">
-                    <h3>馃攳 鑰佷腑鍖诲洓璇婂悎鍙傚垎鏋?/h3>
-                    <p>${report.tcmAnalysis}</p>
-                </div>
-                
-                <div class="analysis-section simple-explanation">
-                    <h3>馃挕 閫氫織鏄撴噦鐨勮В閲?/h3>
-                    <p>${report.simpleExplanation}</p>
-                </div>
-                
-                <div class="analysis-section detailed-analysis">
-                    <h3>馃搳 浣撹川缁嗗垎璇存槑</h3>
-                    <p>${report.detailedAnalysis}</p>
-                </div>
-                
-                <div class="analysis-section treatment-plan">
-                    <h3>馃拪 鍒嗛樁娈佃皟鐞嗘柟妗?/h3>
-                    <p><strong>绗?-2鍛細</strong>${report.treatmentPlan.phase1}</p>
-                    <p><strong>绗?-4鍛細</strong>${report.treatmentPlan.phase2}</p>
-                    <p><strong>绗?-8鍛細</strong>${report.treatmentPlan.phase3}</p>
-                </div>
-                
-                <div class="analysis-section lifestyle-advice">
-                    <h3>馃弮 鐢熸椿璋冪悊寤鸿</h3>
-                    <p><strong>楗锛?/strong>${report.lifestyleAdvice.diet}</p>
-                    <p><strong>杩愬姩锛?/strong>${report.lifestyleAdvice.exercise}</p>
-                    <p><strong>浣滄伅锛?/strong>${report.lifestyleAdvice.sleep}</p>
-                    <p><strong>鎯呯华锛?/strong>${report.lifestyleAdvice.emotions}</p>
-                </div>
-                
-                <div class="analysis-section warnings">
-                    <h3>鈿狅笍 娉ㄦ剰浜嬮」</h3>
-                    <p>${report.warnings}</p>
-                </div>
-                
-                <div class="contact-info">
-                    <p>馃摓 浣撹川璋冪悊闇€瑕佷釜鎬у寲鏂规锛屽缓璁挩璇笓涓氫腑鍖诲笀杩涜闈㈣瘖銆?/p>
-                    <p>馃摫 鎵爜娣诲姞寰俊锛岃幏鍙栦竴瀵逛竴璋冪悊寤鸿</p>
-                    <div class="qr-code">涓汉寰俊浜岀淮鐮?/div>
-                    <p>寰俊鍙凤細Lv-yong-jun</p>
-                </div>
-            `;
-            
-            container.innerHTML = html;
-        }
-        
-        // 杈呭姪鍑芥暟
-        function getConstitutionName(type) {
-            const names = {
-                qiDeficient: '姘旇櫄浣撹川',
-                yangDeficient: '闃宠櫄浣撹川',
-                yinDeficient: '闃磋櫄浣撹川',
-                phlegmDampness: '鐥版箍浣撹川',
-                dampHeat: '婀跨儹浣撹川',
-                bloodStasis: '琛€鐦€浣撹川',
-                qiStagnation: '姘旈儊浣撹川',
-                specialDiathersis: '鐗圭浣撹川'
-            };
-            return names[type] || '鏈‘瀹?;
-        }
-        
-        function getSeverityText(level) {
-            const texts = {
-                mild: '杞诲害',
-                moderate: '涓害',
-                severe: '閲嶅害'
-            };
-            return texts[level] || '鏈垎绾?;
-        }
-        
-        // 椤甸潰鍔犺浇鏃跺垵濮嬪寲
-        window.onload = function() {
-            initQuestions();
-        };
     </script>
 </body>
 </html>
